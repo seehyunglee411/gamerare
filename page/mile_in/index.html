@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게임마켓 로그인 - 빠르고 안전한 접속</title>
+  <link rel="icon" href="../../assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <main class="auth-page">
+    <section class="auth-card logo-only">
+      <a href="../../index.html"><img class="auth-logo" src="../../assets/images/logo_320x104.png" alt="게임마켓 로고"></a>
+      <h1>로그인</h1>
+      <form class="auth-form">
+        <input class="auth-input" type="text" placeholder="아이디">
+        <input class="auth-input" type="password" placeholder="비밀번호">
+        <button class="auth-button" type="button">로그인</button>
+      </form>
+      <nav class="auth-links" aria-label="로그인 메뉴"><a href="../join/">회원가입</a><span>|</span><a href="../login/#find-account">아이디/비밀번호 찾기</a></nav>
+      <div class="verification-box" id="phone-verification">
+        <h2>휴대폰 인증</h2>
+        <p>새로운 IP에서 로그인했습니다.<br>인증번호 6자리를 입력해주세요.</p>
+        <input class="auth-input" type="text" placeholder="인증번호 6자리">
+        <div class="auth-links"><a href="../../index.html">취소</a><span>|</span><a href="./#phone-verification">확인</a></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
