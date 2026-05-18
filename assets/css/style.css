@@ -4017,6 +4017,140 @@ input {
   line-height: 1.7;
 }
 
+/* ─── 공지사항 상세 (page/notice_list/detail/) ─── */
+.notice-detail-body #wrap.notice-detail-page-wrap {
+  background-color: #fff;
+}
+
+.notice-detail-page {
+  padding-top: 24px;
+}
+
+.notice-detail-page .notice-board-wrap {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.notice-detail-wrap {
+  display: grid;
+  gap: 0;
+}
+
+.notice-detail-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.notice-board-back,
+button.notice-board-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.notice-board-back:hover,
+button.notice-board-back:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: #fff7ed;
+}
+
+.notice-back-icon {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.notice-detail-article {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 14px 40px rgba(17, 24, 39, 0.06);
+  overflow: hidden;
+}
+
+.notice-detail-head {
+  padding: 28px 28px 22px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.notice-detail-kicker {
+  margin: 0 0 10px;
+}
+
+.notice-detail-title {
+  margin: 0 0 14px;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.35;
+  color: #111827;
+}
+
+.notice-detail-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.notice-detail-meta svg {
+  flex-shrink: 0;
+  color: #9ca3af;
+}
+
+.notice-detail-content {
+  padding: 28px 28px 36px;
+  color: #374151;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.notice-detail-content p {
+  margin: 0 0 0.85em;
+}
+
+.notice-detail-content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .notice-detail-head,
+  .notice-detail-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .notice-detail-title {
+    font-size: 21px;
+  }
+
+  .notice-detail-nav {
+    margin-bottom: 20px;
+  }
+}
+
 .trade-market-page {
   padding: 28px 0 84px;
   background: #f8f8f8;
