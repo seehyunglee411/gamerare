@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게임마켓 — 아이디 찾기</title>
+  <link rel="icon" href="../../assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body class="login-body">
+  <main id="wrap" class="login-page-wrap find-account-page" style="background-color:#fff;">
+    <section class="login-wrap find-page-inner" aria-labelledby="find-title">
+      <div class="login-top-img">
+        <a href="../../index.html" aria-label="게임마켓 홈">
+          <img src="../../assets/images/log_in_1.png" alt="">
+        </a>
+      </div>
+
+      <div class="find_wrap">
+        <h1 class="find_title" id="find-title">아이디 찾기</h1>
+
+        <nav class="find_tab" aria-label="계정 찾기 유형">
+          <a class="active" href="./index.html" aria-current="page">아이디 찾기</a>
+          <a href="../find_pw/index.html">비밀번호 찾기</a>
+        </nav>
+
+        <div class="find_divider" role="presentation"></div>
+
+        <div class="find_rows">
+          <div class="find_row is-open" data-find-row>
+            <button type="button" class="find_row_head" aria-expanded="true" aria-controls="find-info-phone">
+              <span class="find_row_label">
+                <span class="find_icon_check" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm-2-10.3 2.54 2.55L16.3 11l1.41 1.42-5.7 5.7-5.01-5 .99-1.42 3.61 3.6Z"/></svg>
+                </span>
+                <span>본인 <strong>휴대폰으로 찾기</strong></span>
+              </span>
+              <svg class="find_chevron is-active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+            </button>
+            <div class="find_info" id="find-info-phone">
+              <div class="find_info_visual" aria-hidden="true">
+                <svg class="find_phone_art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 72" fill="none" stroke="currentColor" stroke-width="2.8">
+                  <rect x="8" y="4" width="32" height="64" rx="6"/>
+                  <line x1="18" y1="56" x2="30" y2="56" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p class="find_info_lead">본인 명의의 휴대폰 번호로 인증하실 수 있습니다.</p>
+              <p class="find_info_hint">(타인명의, 법인폰은 본인인증이 불가능합니다.)</p>
+              <form id="form_chk" name="form_chk" method="post" target="popupChk">
+                <input type="hidden" name="m" value="checkplusService">
+                <input type="hidden" name="EncodeData" id="find_encode_data" value="">
+              </form>
+              <a href="#" class="find_action_btn" id="find_phone_btn">찾기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="find_login_back">
+        <a href="../login/index.html">로그인으로 돌아가기</a>
+      </p>
+    </section>
+  </main>
+  <script src="../../assets/js/find-id-page.js"></script>
+</body>
+</html>
