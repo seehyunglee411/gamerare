@@ -1,0 +1,29 @@
+# .github/workflows/deploy.yml
+name: CI/CD SSH Deploy
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            set -Eeuo pipefail
+
+            REPO_DIR=/home/ubuntu/gamerare
+
+            cd "$REPO_DIR"
+            git fetch origin main
+            git reset --hard origin/main
+          timeout: 30s
+          command_timeout: 10m
