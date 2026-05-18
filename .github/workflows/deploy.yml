@@ -10,6 +10,27 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Minify CSS and JS assets
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          npx --yes clean-css-cli -o assets/css/style.min.css assets/css/style.css
+          mv assets/css/style.min.css assets/css/style.css
+
+          for file in assets/js/*.js; do
+            npx --yes terser "$file" -c -m -o "$file.min"
+            mv "$file.min" "$file"
+          done
+
       - name: Deploy via SSH
         uses: appleboy/ssh-action@master
         with:
@@ -27,3 +48,13 @@ jobs:
             git reset --hard origin/main
           timeout: 30s
           command_timeout: 10m
+
+      - name: Upload minified assets
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: "assets/css/style.css,assets/js/*.js"
+          target: /home/ubuntu/gamerare
