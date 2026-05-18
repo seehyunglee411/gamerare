@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>게임마켓 마이룸 - 오리너구리다님의 정보</title>
+  <title>게임마켓 — 회원정보 수정</title>
   <link rel="icon" href="../../assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body class="mypage-body">
-  <h1 class="sr-only">게임마켓 마이페이지</h1>
+  <h1 class="sr-only">회원정보 수정</h1>
   <h2 class="sr-only">게임 계정거래 - 인기 게임 계정 안전하게 사고팔기</h2>
   <h2 class="sr-only">아이템거래 - 최저가 아이템 즉시 거래</h2>
   <h2 class="sr-only">게임머니 거래 - 메소, 로아 골드 안전거래 지원</h2>
@@ -105,7 +105,7 @@
       <a href="../trade_write/index.html?status=sell">판매등록</a>
       <a href="../trade_write/index.html?status=buy">구매등록</a>
       <a class="with-badge" href="../game/select/index.html">계정거래 <span>NEW</span></a>
-      <a href="./index.html" aria-current="page">마이룸</a>
+      <a href="../mypage/index.html">마이룸</a>
       <a href="../mywrite/index.html">내게시글</a>
       <a href="../notice_list/index.html">고객센터</a>
       <a href="../game/select/index.html">전체메뉴</a>
@@ -113,70 +113,141 @@
     </nav>
   </header>
 
-  <main class="mypage-main">
-    <section class="section mypage-wrap">
-      <h2 class="mypage-title">오리너구리다님의 정보</h2>
+    <main id="wrap" class="mypage-main member-modify-page" style="background-color:#fff;">
+    <div class="modify_wrap section">
 
-      <section class="mypage-info-card">
-        <div class="my-grade">
-          <span class="grade-dot">B</span>
-          <strong class="bronze">브론즈</strong>
-          <span class="point">(0점)</span>
-          <details>
-            <summary>?</summary>
-            <p>아이템장터에서 거래 또는 상품권마켓에서 상품권 구매 시 거래 완료 1회당 1점이 부여됩니다.<br><br>브론즈 - 거래점수 5점 미만<br>실버 - 거래점수 5점 이상<br>골드 - 거래점수 51점 이상<br>플래티넘 - 거래점수 101점 이상, 최근 3개월 점수 5점 이상<br>VIP - 거래점수 301점 이상, 최근 3개월 점수 10점 이상</p>
-          </details>
+      <div class="mypage_top_btn">
+        <button type="button" class="modify-back-btn" onclick="history.back()">뒤로가기</button>
+      </div>
+
+      <h2 class="mypage_title modify-page-title">회원정보수정</h2>
+
+      <div class="modify-table-block">
+        <table class="modify_table">
+          <tbody>
+            <tr><th scope="row">아이디</th><td>sonkin275</td><td class="modify_table_action"></td></tr>
+            <tr><th scope="row">비밀번호</th><td aria-hidden="true">*******</td><td class="modify_table_action"><a href="#" data-modify-pop="pop_1">수정</a></td></tr>
+            <tr><th scope="row">이름</th><td>김수환</td><td class="modify_table_action"></td></tr>
+            <tr><th scope="row">생년월일</th><td>960212</td><td class="modify_table_action"></td></tr>
+            <tr><th scope="row">별명</th><td>오리너구리다</td><td class="modify_table_action"><a href="#" data-modify-pop="pop_2">수정</a></td></tr>
+            <tr><th scope="row">소개</th><td class="modify_cell_muted">—</td><td class="modify_table_action"><a href="#" data-modify-pop="pop_3">수정</a></td></tr>
+            <tr><th scope="row">프로필이미지</th><td class="modify_profile_thumb"></td><td class="modify_table_action"><a href="#" data-modify-pop="pop_4">수정</a></td></tr>
+            <tr><th scope="row">휴대폰번호</th><td>010-7760-7780</td><td class="modify_table_action"><a href="#" data-modify-pop="pop_5">수정</a></td></tr>
+            <tr><th scope="row">신분증</th><td class="modify_id_hint">인증이 등록되지 않았습니다.</td><td class="modify_table_action"><a href="#" data-modify-pop="pop_6">등록</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modify_btn_wrap">
+        <a class="btn-quit" href="../member_exit/index.html">회원탈퇴</a>
+        <a class="btn-ok primary-pill-link" href="../mypage/index.html">확인</a>
+      </div>
+    </div>
+
+    <div class="modify-black-bg black_bg" aria-hidden="true"></div>
+
+    <div class="modify_pop_wrap pop_1" role="dialog" aria-modal="true" aria-labelledby="pop1-title">
+      <form id="update_new_pw" class="modify_pop_inner" action="#" method="post" data-demo-form="1">
+        <input type="hidden" name="status" value="">
+        <div class="modify_pop_title" id="pop1-title">
+          비밀번호
+          <button type="button" class="modify_pop_close" data-modify-pop-close aria-label="닫기"><svg class="modify-pop-close-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></button>
         </div>
+        <div class="modify_pop_input"><input type="password" name="current_password" maxlength="16" autocomplete="current-password" placeholder="현재 비밀번호"></div>
+        <div class="modify_pop_input"><input type="password" name="new_password" maxlength="16" autocomplete="new-password" placeholder="새 비밀번호"></div>
+        <div class="modify_pop_input"><input type="password" name="re_password" maxlength="16" autocomplete="new-password" placeholder="새 비밀번호 확인"></div>
+        <p class="modify_pop_info">※ 8~16자 영문, 숫자, 특수문자 ~!@#$%^&amp; 를 사용하세요.</p>
+        <div class="modify_pop_btn"><button type="button" onclick="go_update('update_new_pw')">수정</button></div>
+      </form>
+    </div>
 
-        <div class="my-review">
-          <strong>거래후기 <span>0</span>개</strong>
-          <div class="star-wrap" aria-label="별점 0점"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div>
-          <a href="../faq/index.html#trade-help">후기 확인하기</a>
+    <div class="modify_pop_wrap pop_2" role="dialog" aria-modal="true" aria-labelledby="pop2-title">
+      <form id="update_nickname" class="modify_pop_inner" action="#" method="post">
+        <input type="hidden" name="status" value="">
+        <input type="hidden" name="nick_status" id="nick_status" value="0">
+        <div class="modify_pop_title" id="pop2-title">
+          별명
+          <button type="button" class="modify_pop_close" data-modify-pop-close aria-label="닫기"><svg class="modify-pop-close-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></button>
         </div>
-
-        <div class="my-cert-list">
-          <span class="active">✓ 실명인증</span>
-          <span class="active">✓ 휴대폰</span>
-          <span>출금계좌</span>
-          <span>신분증</span>
+        <div class="modify_pop_input has-counter">
+          <input class="word_chk" type="text" maxlength="8" name="new_nickname" id="new_nickname" value="오리너구리다" placeholder="별명">
+          <div class="chk_txt">0 / 8</div>
         </div>
+        <div class="modify_pop_btn"><button type="button" onclick="go_update('update_nickname')">수정</button></div>
+      </form>
+    </div>
 
-        <div class="my-action-grid">
-          <a class="profile" href="../member_modify/index.html"><i>ID</i><span>회원정보수정</span></a>
-          <a class="account" href="./index.html"><i>AC</i><span>출금계좌수정</span></a>
-          <a class="charge" href="../mile_in/index.html"><i>+</i><span>마일리지충전</span></a>
-          <a class="withdraw" href="../mile_out/index.html"><i>￦</i><span>마일리지출금</span></a>
+    <div class="modify_pop_wrap pop_3" role="dialog" aria-modal="true" aria-labelledby="pop3-title">
+      <form id="update_info" class="modify_pop_inner" action="#" method="post">
+        <input type="hidden" name="status" value="">
+        <div class="modify_pop_title" id="pop3-title">
+          소개
+          <button type="button" class="modify_pop_close" data-modify-pop-close aria-label="닫기"><svg class="modify-pop-close-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></button>
         </div>
-      </section>
+        <div class="modify_pop_textarea"><textarea name="shop_intro" rows="5" placeholder="소개글을 입력하세요."></textarea></div>
+        <div class="modify_pop_btn"><button type="button" onclick="go_update('update_info')">수정</button></div>
+      </form>
+    </div>
 
-      <section class="mypage-balance-card">
-        <div class="my-mile-row" id="mileage"><span>마일리지</span><div><a class="blue" href="./index.html#mileage">0 원</a><a class="btn" href="../mile_in/index.html">마일리지 충전</a></div></div>
-        <div class="my-mile-row" id="point"><span>적립금</span><div><a class="red" href="./index.html#point">0 원</a><a class="btn" href="../mile_out/index.html">마일리지 출금</a></div></div>
-        <div class="my-mile-row"><span>쿠폰함</span><div><a class="yellow" href="./index.html">4개</a><a class="btn" href="./index.html">쿠폰 확인하기</a></div></div>
-      </section>
+    <div class="modify_pop_wrap pop_4" role="dialog" aria-modal="true" aria-labelledby="pop4-title">
+      <form id="update_img" class="modify_pop_inner" action="#" method="post" enctype="multipart/form-data">
+        <div class="modify_pop_title" id="pop4-title">
+          프로필 이미지
+          <button type="button" class="modify_pop_close" data-modify-pop-close aria-label="닫기"><svg class="modify-pop-close-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></button>
+        </div>
+        <label class="modify-file-label" for="fileInput">이미지 파일 선택</label>
+        <input type="file" id="fileInput" name="profile_file" accept="image/*" onchange="preview_profile_image(event)" class="modify-file-input">
+        <div id="profile-preview-wrap" class="profile-preview-wrap" hidden>
+          <p class="profile-preview-caption">미리보기</p>
+          <img id="profile-preview-image" alt="선택한 프로필 이미지 미리보기">
+        </div>
+        <div class="modify_pop_btn"><button type="button" onclick="go_update_img()">저장</button></div>
+      </form>
+    </div>
 
-      <section class="mypage-flow-card">
-        <strong>판매내역</strong>
-        <a href="../mywrite/index.html">결제대기</a><span>&gt;</span><a href="../mywrite/index.html">판매중 거래 <em>0</em>건</a><span>&gt;</span><a href="../mywrite/index.html">판매완료</a>
-      </section>
+    <div class="modify_pop_wrap pop_5" role="dialog" aria-modal="true" aria-labelledby="pop5-title">
+      <form id="update_phone" class="modify_pop_inner" action="#" method="post">
+        <input type="hidden" name="status" value="">
+        <input type="hidden" name="sms_chk" id="sms_chk" value="0">
+        <div class="modify_pop_title" id="pop5-title">
+          휴대폰번호
+          <button type="button" class="modify_pop_close" data-modify-pop-close aria-label="닫기"><svg class="modify-pop-close-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></button>
+        </div>
+        <div class="modify_pop_input"><input type="password" maxlength="16" name="current_password" autocomplete="current-password" placeholder="현재 비밀번호"></div>
+        <div class="phone_pop_input_wrap">
+          <div class="phone_pop_input">
+            <input class="word_chk" type="text" maxlength="13" name="phone" id="phone" placeholder="010-0000-0000" value="010-7760-7780" oninput="isNumberOrHyphen(this);cvtPhoneNumber(this);">
+            <div class="chk_txt">0 / 11</div>
+          </div>
+          <button type="button" class="modify-inline-btn" onclick="go_sms_auth()">번호인증</button>
+        </div>
+        <div class="phone_pop_input_wrap">
+          <div class="phone_pop_input"><input class="word_chk no-counter" type="text" maxlength="4" name="smscode" id="smscode" placeholder="인증번호 입력"></div>
+          <button type="button" class="modify-inline-btn" onclick="go_sms_chk()">인증확인</button>
+        </div>
+        <div class="modify_pop_btn"><button type="button" onclick="go_update('update_phone')">수정</button></div>
+      </form>
+    </div>
 
-      <section class="mypage-flow-card">
-        <strong>구매내역</strong>
-        <a href="../mywrite/index.html">결제대기</a><span>&gt;</span><a href="../mywrite/index.html">구매중 거래 <em>0</em>건</a><span>&gt;</span><a href="../mywrite/index.html">구매완료</a>
-      </section>
-
-      <section class="mypage-stat-card">
-        <h3>판매금액 통계</h3>
-        <div class="stat-row"><div><span>1~6월 판매금액</span><strong>0</strong>원</div><div><span>2026년 판매금액</span><strong>0</strong>원</div></div>
-        <p>※ 판매금액이 반기(1~6월/7~12월) <b>1,500만원 또는 연간 3,000만원 초과시</b> 부가세 신고가 필요할 수 있습니다.<br>※ 단, 업으로 삼는 판매가 아닌 일반적인 개인 판매거래의 경우는 부가세 신고의무가 없습니다.</p>
-      </section>
-
-      <section class="mypage-stat-card">
-        <h3>구매금액 통계</h3>
-        <div class="stat-row"><div><span>1~6월 구매금액</span><strong>0</strong>원</div><div><span>2026년 구매금액</span><strong>0</strong>원</div></div>
-      </section>
-    </section>
+    <div class="modify_pop_wrap pop_6" role="dialog" aria-modal="true" aria-labelledby="pop6-title">
+      <div class="modify_pop_inner">
+        <div class="modify_pop_title" id="pop6-title">
+          신분증 업로드
+          <button type="button" class="modify_pop_close" data-modify-pop-close aria-label="닫기"><svg class="modify-pop-close-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></button>
+        </div>
+        <p class="modify-id-notice">
+          ※ 신분증에 기재된 <strong>이름과 생년월일은 회원 정보와 일치해야 하며</strong> 주민등록번호 뒷자리는 가려 주세요.<br>
+          ※ 주민등록증, 운전면허증, 여권 등 공적 신분증만 인정됩니다.<br>
+          ※ 타인 신분증 도용 또는 허위 정보 등록 시 서비스 이용이 제한될 수 있습니다.
+        </p>
+        <div id="id-card-preview-container" class="modify-id-preview-list"></div>
+        <input type="file" class="modify-file-input-visually-hidden" id="id-card-file-input" accept="image/*">
+        <button type="button" class="modify-id-upload-trigger" data-id-card-trigger="1">파일 첨부</button>
+        <div class="modify_pop_btn"><button type="button" onclick="handle_update_id_card(event)">등록</button></div>
+      </div>
+    </div>
   </main>
+
 
   <nav class="mobile-bottom-nav" aria-label="모바일 빠른 메뉴">
     <a href="./index.html">내정보</a>
@@ -186,6 +257,7 @@
   </nav>
 
   <footer class="site-footer"><div class="footer-inner"><nav class="footer-links"><a href="../faq/index.html#terms-service">이용약관</a><span>|</span><a href="../faq/index.html#terms-trade">아이템거래약관</a><span>|</span><a href="../faq/index.html#privacy">개인정보취급방침</a><span>|</span><a href="../notice_list/index.html#partnership">광고/제휴문의</a></nav><div class="company-info"><img src="../../assets/images/logo_320x104.png" alt="게임마켓 로고"><p>상호 : 겜마톡 / 대표 : 유지훈 / 사업자등록번호 : 807-16-01721 / 통신판매업 : 2024-전주덕진-0100 / 고객센터 : 1644-4176<br>전라북도 전주시 덕진구 가재미로 83(인후동1가) / 이메일 : contact@gamemarket.kr<br>COPYRIGHT (C) GAME MARKET. ALL RIGHTS RESERVED.</p></div></div></footer>
+  <script src="../../assets/js/member-modify-page.js"></script>
   <script src="../../assets/js/search.js"></script>
 </body>
 </html>
