@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>거래 상세 | 안전한 게임마켓</title>
+    <link rel="icon" href="../../../assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="../../../assets/css/style.css" />
+  </head>
+  <body>
+    <h1 class="sr-only">게임마켓 거래 상세</h1>
+    <h2 class="sr-only">게임 계정거래 - 인기 게임 계정 안전하게 사고팔기</h2>
+    <h2 class="sr-only">아이템거래 - 최저가 아이템 즉시 거래</h2>
+    <h2 class="sr-only">게임머니 거래 - 메소, 로아 골드, 던파 골드 안전거래 지원</h2>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../../../index.html" aria-label="게임마켓 홈"
+          ><img src="../../../assets/images/logo_320x104.png" alt="게임마켓 로고"
+        /></a>
+        <nav class="utility-nav" aria-label="회원 메뉴">
+          <a href="../../login/index.html">로그인</a>
+          <a href="../../join/index.html">회원가입</a>
+          <a href="../../notice_list/index.html">고객센터</a>
+        </nav>
+        <button class="mobile-menu-button" type="button" aria-label="메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <section class="search-area" aria-label="거래 검색">
+        <div class="search-wrap">
+          <div class="search-tabs" aria-label="거래 유형">
+            <label class="tab active"
+              ><input type="radio" name="header-type" value="sell" checked /><span>팝니다</span></label
+            >
+            <label class="tab"
+              ><input type="radio" name="header-type" value="buy" /><span>삽니다</span></label
+            >
+          </div>
+          <div class="search-box">
+            <input
+              id="detailSearchKeyword"
+              type="search"
+              value="던전앤파이터 > 전체서버"
+              placeholder="게임명을 입력해주세요!"
+              aria-label="게임명 검색"
+            />
+            <button type="button" aria-label="검색">검색</button>
+          </div>
+          <div class="search-dropdown">
+            <div class="search_box">
+              <ul class="game_list">
+                <li class="game s14"><a href="../index.html?gm=14&krgame=로스트아크&krserver=전체서버&type=sell">로스트아크</a></li>
+                <li class="game s15"><a href="../index.html?gm=15&krgame=메이플스토리&krserver=전체서버&type=sell">메이플스토리</a></li>
+                <li class="game s16"><a href="../index.html?gm=16&sv=36&krgame=던전앤파이터&krserver=전체서버&type=sell">던전앤파이터</a></li>
+              </ul>
+              <div id="server_list" class="server-list-panel">
+                <div class="server-list-title">인기게임</div>
+                <ul class="server_list server_list2">
+                  <li class="server-game-card"><a href="../index.html?gm=14&krgame=로스트아크&krserver=전체서버&type=sell"><span class="server-game-logo-text">LA</span><span class="server-game-name">로스트아크</span></a></li>
+                  <li class="server-game-card"><a href="../index.html?gm=15&krgame=메이플스토리&krserver=전체서버&type=sell"><span class="server-game-logo-text">MS</span><span class="server-game-name">메이플스토리</span></a></li>
+                  <li class="server-game-card"><a href="../index.html?gm=16&sv=36&krgame=던전앤파이터&krserver=전체서버&type=sell"><span class="server-game-logo-text">DF</span><span class="server-game-name">던전앤파이터</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="mobile-trade-register-strip">
+        <a href="../../trade_write/index.html?status=sell&gm=16&sv=36&krgame=던전앤파이터&krserver=전체서버">판매등록</a>
+        <a href="../../trade_write/index.html?status=buy&gm=16&sv=36&krgame=던전앤파이터&krserver=전체서버">구매등록</a>
+      </div>
+      <nav class="main-nav" aria-label="주 메뉴">
+        <a href="../../trade_write/index.html?status=sell">판매등록</a>
+        <a href="../../trade_write/index.html?status=buy">구매등록</a>
+        <a class="with-badge" href="../../game/select/index.html">계정거래 <span>NEW</span></a>
+        <a href="../../mypage/index.html">마이룸</a>
+        <a href="../../mywrite/index.html">내게시글</a>
+        <a href="../../notice_list/index.html">고객센터</a>
+        <a href="../../faq/index.html">FAQ</a>
+      </nav>
+    </header>
+
+    <main class="trade-detail-page section">
+      <div class="trade-detail-layout">
+        <section class="trade-detail-main" aria-labelledby="trade-detail-title">
+          <nav class="trade-detail-breadcrumb" aria-label="현재 위치">
+            <a id="detailGameLink" href="../index.html?gm=16&sv=36&krgame=던전앤파이터&krserver=전체서버&type=sell">던전앤파이터</a>
+            <span aria-hidden="true">&gt;</span>
+            <a id="detailServerLink" href="../index.html?gm=16&sv=36&krgame=던전앤파이터&krserver=전체서버&type=sell">전체서버</a>
+            <span aria-hidden="true">&gt;</span>
+            <span id="detailItemType">아이템</span>
+            <span aria-hidden="true">&gt;</span>
+            <strong id="detailTradeNo">#31614</strong>
+            <span class="sell trade-detail-sale-chip" id="detailSaleType">팝니다</span>
+          </nav>
+
+          <header class="trade-detail-head">
+            <h2 id="trade-detail-title">코스믹 어드벤처 패키지 주고 또 주고 진행합니다.</h2>
+            <div class="trade-detail-meta">
+              <span class="seller-presence is-online" id="detailStatus">온라인</span>
+              <span class="trade-detail-seller" id="detailSeller">대숲냥터구리</span>
+              <span class="trade-detail-divider" aria-hidden="true"></span>
+              <span class="trade-detail-muted">거래중 313건</span>
+              <span class="trade-detail-chip">실명인증</span>
+              <span class="trade-detail-chip">휴대폰</span>
+              <span class="trade-detail-chip">출금계좌</span>
+            </div>
+          </header>
+
+          <section class="trade-detail-card" aria-labelledby="trade-price-title">
+            <h3 id="trade-price-title">가격정보</h3>
+            <div class="trade-detail-price-block">
+              <span id="detailUnitLabel">1개 당</span>
+              <strong id="detailUnitPrice">15,500원</strong>
+            </div>
+            <p class="trade-detail-price-meta">
+              <span>최소 <strong id="detailMinQty">3개</strong></span>
+              <span>~</span>
+              <span>최대 <strong id="detailMaxQty">921개</strong></span>
+            </p>
+          </section>
+
+          <section class="trade-detail-card" aria-labelledby="trade-desc-title">
+            <h3 id="trade-desc-title">상세설명</h3>
+            <div class="trade-detail-description" id="detailDescription">
+              <p>네이버 계정은 진행이 불가능하며, 상품권 한도가 남아있어야 진행 가능합니다. (39,200 * N회)</p>
+              <p>아래 구매 보상 확인하신 뒤, 진행 횟수만큼 신청 부탁드립니다.</p>
+              <p>비접속식으로 진행하며, 게임에 접속하지 않습니다.</p>
+              <p>1개 구매 시 : 천공의 지배자 칭호 확정 변경권</p>
+              <p>2개 구매 시 : 계정귀속 찬란한 엠블렘 2개 선택 상자 + 프리미엄 코인 1개</p>
+              <p>3개 구매 시 : 코스믹 어드벤처 무기 상자 + 프리미엄 코인 2개</p>
+              <p>4개 구매 시 : 코스믹 어드벤처 스페셜 모자 아바타 상자 + 프리미엄 코인 2개</p>
+              <p>5개 구매 시 : 코스믹 어드벤처 아바타 풀세트 상자(E/F 타입) + 프리미엄 코인 2개</p>
+              <p>추가로 10회 진행 시 3,920 마일리지도 가져가십니다.</p>
+            </div>
+          </section>
+        </section>
+
+        <aside class="trade-detail-side" aria-label="결제 정보">
+          <section class="trade-detail-order-card">
+            <div class="trade-detail-order-block">
+              <div class="trade-detail-order-head">
+                <strong>구매 수량</strong>
+                <div class="trade-detail-qty-summary">
+                  <span id="detailQtySummary">1개</span>
+                  <span aria-hidden="true">=</span>
+                  <strong id="detailItemSummary">아이템 1개</strong>
+                </div>
+              </div>
+              <div class="trade-detail-qty-row">
+                <button type="button" class="trade-detail-step" id="detailMinusBtn" aria-label="수량 감소">-</button>
+                <input id="detailQtyInput" class="trade-detail-qty-input" type="number" value="1" min="1" max="921" inputmode="numeric" />
+                <button type="button" class="trade-detail-step" id="detailPlusBtn" aria-label="수량 증가">+</button>
+              </div>
+            </div>
+
+            <div class="trade-detail-order-block">
+              <label class="trade-detail-label" for="detailCharacterName">구매자 캐릭터명</label>
+              <input id="detailCharacterName" class="trade-detail-input" type="text" placeholder="물품을 전달 받으실 본인의 캐릭터명" />
+            </div>
+
+            <fieldset class="trade-detail-order-block trade-detail-fieldset">
+              <legend class="trade-detail-label">구매자 안심서비스</legend>
+              <label class="trade-detail-option">
+                <input type="radio" name="detail-assurance" value="none" checked />
+                <span>보증서비스 미사용</span>
+              </label>
+              <label class="trade-detail-option">
+                <input type="radio" name="detail-assurance" value="paid" />
+                <span>사고발생시 100% 보상 <small>(보증료 1.5%)</small></span>
+              </label>
+            </fieldset>
+
+            <div class="trade-detail-order-block">
+              <div class="trade-detail-payment-head">
+                <strong>결제수단</strong>
+                <a href="../../mile_in/index.html">마일리지 충전하기</a>
+              </div>
+              <div class="trade-detail-pay-tabs" role="tablist" aria-label="결제수단">
+                <button type="button" class="trade-detail-pay-tab is-active" data-pay="mileage">마일리지</button>
+                <button type="button" class="trade-detail-pay-tab" data-pay="card">신용카드</button>
+                <button type="button" class="trade-detail-pay-tab" data-pay="phone">휴대폰</button>
+              </div>
+            </div>
+
+            <div class="trade-detail-order-block trade-detail-coupon-row">
+              <div>
+                <strong class="trade-detail-label">쿠폰</strong>
+                <p>한 거래에 쿠폰 1개만 적용할 수 있습니다.</p>
+              </div>
+              <button type="button" class="trade-detail-subtle-btn">쿠폰 선택</button>
+            </div>
+
+            <div class="trade-detail-order-block trade-detail-mileage-row">
+              <div>
+                <strong class="trade-detail-label">적립금 사용</strong>
+                <p>(보유: <span id="detailPointBalance">0원</span>)</p>
+              </div>
+              <div class="trade-detail-inline-controls">
+                <input id="detailPointInput" class="trade-detail-inline-input" type="number" value="0" min="0" inputmode="numeric" />
+                <button type="button" class="trade-detail-apply-btn" id="detailPointApplyBtn">전액사용</button>
+              </div>
+            </div>
+
+            <div class="trade-detail-order-block trade-detail-mileage-balance">
+              <span>보유 마일리지</span>
+              <strong id="detailMileageBalance">900원</strong>
+            </div>
+
+            <div class="trade-detail-total-row">
+              <span>총 결제금액</span>
+              <strong id="detailTotalPrice">15,500원</strong>
+            </div>
+
+            <div class="trade-detail-action-row">
+              <a class="trade-detail-chat-btn" href="../../chat_iframe/chat_group_list/index.html">채팅</a>
+              <button type="button" class="trade-detail-pay-btn" id="detailPayBtn">결제</button>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <nav class="mobile-bottom-nav" aria-label="모바일 빠른 메뉴">
+      <a href="../../mypage/index.html">내정보</a>
+      <a href="../../mywrite/index.html#sell">판매중(0)</a>
+      <a href="../../mywrite/index.html#buy">구매중(0)</a>
+      <a href="../../chat_iframe/chat_group_list/index.html">채팅하기</a>
+    </nav>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <nav class="footer-links">
+          <a href="../../faq/index.html#terms-service">이용약관</a><span>|</span>
+          <a href="../../faq/index.html#terms-trade">아이템거래약관</a><span>|</span>
+          <a href="../../faq/index.html#privacy">개인정보취급방침</a><span>|</span>
+          <a href="../../notice_list/index.html#partnership">광고/제휴문의</a>
+        </nav>
+        <div class="company-info">
+          <img src="../../../assets/images/logo_320x104.png" alt="게임마켓 로고" />
+          <p>
+            상호 : 겜마톡 / 대표 : 유지훈 / 사업자등록번호 : 807-16-01721 / 통신판매업 : 2024-전주덕진-0100 / 고객센터 : 1644-4176<br />전라북도 전주시 덕진구 가재미로 83(인후동1가) / 이메일 : contact@gamemarket.kr<br />COPYRIGHT (C) GAME MARKET. ALL RIGHTS RESERVED.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../../assets/js/search.js"></script>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var data = {
+          game: params.get("game") || params.get("krgame") || "던전앤파이터",
+          server: params.get("server") || params.get("krserver") || "전체서버",
+          itemType: params.get("itemType") || "아이템",
+          saleType: params.get("type") === "buy" ? "삽니다" : "팝니다",
+          tradeNo: params.get("tradeNo") || "31614",
+          title: params.get("title") || "코스믹 어드벤처 패키지 주고 또 주고 진행합니다.",
+          seller: params.get("seller") || "대숲냥터구리",
+          status: params.get("status") || "online",
+          unitLabel: params.get("unitLabel") || "1개 당",
+          unitPrice: parseInt(params.get("unitPrice") || "15500", 10),
+          minQty: parseInt(params.get("min") || "3", 10),
+          maxQty: parseInt(params.get("max") || "921", 10),
+          qty: parseInt(params.get("qty") || params.get("min") || "1", 10),
+          mileage: parseInt(params.get("mileage") || "900", 10),
+          point: parseInt(params.get("point") || "0", 10)
+        };
+
+        function formatWon(value) {
+          return new Intl.NumberFormat("ko-KR").format(value) + "원";
+        }
+
+        function syncText(id, value) {
+          var el = document.getElementById(id);
+          if (el) el.textContent = value;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+          var qtyInput = document.getElementById("detailQtyInput");
+          var minusBtn = document.getElementById("detailMinusBtn");
+          var plusBtn = document.getElementById("detailPlusBtn");
+          var pointInput = document.getElementById("detailPointInput");
+          var pointApplyBtn = document.getElementById("detailPointApplyBtn");
+          var payTabs = document.querySelectorAll(".trade-detail-pay-tab");
+          var assuranceInputs = document.querySelectorAll('input[name="detail-assurance"]');
+          var payBtn = document.getElementById("detailPayBtn");
+          var searchKeyword = document.getElementById("detailSearchKeyword");
+          var appliedPoint = 0;
+
+          syncText("trade-detail-title", data.title);
+          syncText("detailTradeNo", "#" + data.tradeNo);
+          syncText("detailSaleType", data.saleType);
+          syncText("detailSeller", data.seller);
+          syncText("detailItemType", data.itemType);
+          syncText("detailUnitLabel", data.unitLabel);
+          syncText("detailUnitPrice", formatWon(data.unitPrice));
+          syncText("detailMinQty", data.minQty + "개");
+          syncText("detailMaxQty", data.maxQty + "개");
+          syncText("detailMileageBalance", formatWon(data.mileage));
+          syncText("detailPointBalance", formatWon(data.point));
+          if (searchKeyword) {
+            searchKeyword.value = data.game + " > " + data.server;
+          }
+
+          var gameLink = document.getElementById("detailGameLink");
+          var serverLink = document.getElementById("detailServerLink");
+          var listHref = "../index.html?gm=16&sv=36&krgame=" + encodeURIComponent(data.game) + "&krserver=" + encodeURIComponent(data.server) + "&type=" + (data.saleType === "삽니다" ? "buy" : "sell") + "#trade-list";
+          if (gameLink) {
+            gameLink.textContent = data.game;
+            gameLink.href = listHref;
+          }
+          if (serverLink) {
+            serverLink.textContent = data.server;
+            serverLink.href = listHref;
+          }
+
+          var statusEl = document.getElementById("detailStatus");
+          if (statusEl) {
+            statusEl.classList.toggle("is-online", data.status === "online");
+            statusEl.classList.toggle("is-away", data.status === "away");
+            statusEl.textContent = data.status === "away" ? "자리비움" : "온라인";
+          }
+
+          function clampQty(nextQty) {
+            if (Number.isNaN(nextQty)) return data.minQty;
+            return Math.min(Math.max(nextQty, 1), data.maxQty);
+          }
+
+          function renderTotal() {
+            var qty = clampQty(parseInt(qtyInput.value || "0", 10));
+            var total = data.unitPrice * qty;
+            var finalTotal = Math.max(total - appliedPoint, 0);
+            qtyInput.value = qty;
+            syncText("detailQtySummary", qty + "개");
+            syncText("detailItemSummary", data.itemType + " " + qty + "개");
+            syncText("detailTotalPrice", formatWon(finalTotal));
+            if (payBtn) {
+              payBtn.textContent = "결제";
+            }
+          }
+
+          if (qtyInput) {
+            qtyInput.value = clampQty(data.qty);
+            qtyInput.max = String(data.maxQty);
+            qtyInput.addEventListener("input", renderTotal);
+          }
+          if (minusBtn) {
+            minusBtn.addEventListener("click", function () {
+              qtyInput.value = clampQty(parseInt(qtyInput.value || "0", 10) - 1);
+              renderTotal();
+            });
+          }
+          if (plusBtn) {
+            plusBtn.addEventListener("click", function () {
+              qtyInput.value = clampQty(parseInt(qtyInput.value || "0", 10) + 1);
+              renderTotal();
+            });
+          }
+          if (pointApplyBtn) {
+            pointApplyBtn.addEventListener("click", function () {
+              if (!pointInput) return;
+              pointInput.value = String(data.point);
+              appliedPoint = data.point;
+              renderTotal();
+            });
+          }
+          if (pointInput) {
+            pointInput.addEventListener("input", function () {
+              var requested = parseInt(pointInput.value || "0", 10);
+              if (Number.isNaN(requested)) requested = 0;
+              appliedPoint = Math.min(Math.max(requested, 0), data.point);
+              pointInput.value = String(appliedPoint);
+              renderTotal();
+            });
+          }
+          payTabs.forEach(function (tab) {
+            tab.addEventListener("click", function () {
+              payTabs.forEach(function (item) {
+                item.classList.remove("is-active");
+              });
+              tab.classList.add("is-active");
+            });
+          });
+          assuranceInputs.forEach(function (input) {
+            input.addEventListener("change", function () {
+              assuranceInputs.forEach(function (node) {
+                node.closest(".trade-detail-option").classList.toggle("is-selected", node.checked);
+              });
+            });
+            input.closest(".trade-detail-option").classList.toggle("is-selected", input.checked);
+          });
+
+          renderTotal();
+        });
+      })();
+    </script>
+  </body>
+</html>

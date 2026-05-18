@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>게임마켓 마일리지 충전</title>
+  <title>게임마켓 충전/출금 신청내역</title>
   <link rel="icon" href="../../assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body class="mypage-body">
-  <h1 class="sr-only">게임마켓 마일리지 충전</h1>
+  <h1 class="sr-only">게임마켓 충전 출금 신청내역</h1>
   <h2 class="sr-only">게임 계정거래 - 인기 게임 계정 안전하게 사고팔기</h2>
   <h2 class="sr-only">아이템거래 - 최저가 아이템 즉시 거래</h2>
   <h2 class="sr-only">게임머니 거래 - 메소, 로아 골드 안전거래 지원</h2>
@@ -114,7 +114,7 @@
 
   <main class="mypage-main mileage-page">
     <section class="section mileage-charge-wrap">
-      <h2 class="mileage-page-title">마일리지 충전</h2>
+      <h2 class="mileage-page-title">충전/출금 신청내역</h2>
 
       <section class="mileage-summary-card" aria-label="마일리지 요약">
         <div class="mileage-summary-grid">
@@ -128,77 +128,82 @@
           </div>
         </div>
         <div class="mileage-quick-links" aria-label="마일리지 메뉴">
-          <a href="./index.html" aria-current="page">마일리지 충전</a>
+          <a href="../mile_in/index.html">마일리지 충전</a>
           <a href="../mile_out/index.html">마일리지 출금</a>
-          <a href="../mile_history/index.html">충전/출금 신청내역</a>
-          <a href="#charge-form">입금 신청</a>
+          <a href="./index.html" aria-current="page">충전/출금 신청내역</a>
+          <a href="../account/index.html">출금계좌 등록</a>
           <a href="../mileage/index.html">마일리지 내역</a>
           <a href="../point/index.html">적립금 내역</a>
         </div>
       </section>
 
-      <section class="mileage-charge-card" id="charge-form" aria-labelledby="charge-form-title">
-        <h3 class="mileage-charge-heading" id="charge-form-title">마일리지 충전</h3>
-
-        <div class="mileage-charge-notice" id="charge-guide">
-          <p class="notice-emphasis">정확하게 실시간 24시간 시스템으로 자동충전 됩니다.</p>
-          <p class="notice-emphasis">입금자명이 다를 경우 충전이 되지 않으며, 이 경우 고객센터로 문의주세요.</p>
-          <ul>
-            <li>충전 신청 후 선택한 결제수단 정보는 신청폼 하단에 안내됩니다.</li>
-            <li>은행 점검이나 시스템 점검 시간에는 충전이 지연될 수 있습니다.</li>
-            <li>충전 신청 후 10분 내로 입금이 완료되면 자동으로 처리됩니다.</li>
-            <li>충전 금액과 실제 입금 금액이 다르면 자동 적립이 되지 않을 수 있습니다.</li>
-            <li>신용카드, 휴대폰결제, 실시간계좌이체는 준비 중입니다.</li>
-          </ul>
-        </div>
-
-        <div class="modify-table-block">
-          <table class="modify_table mileage-charge-table">
-            <tbody>
+      <section class="mileage-charge-card" aria-labelledby="history-title">
+        <h3 class="mileage-charge-heading" id="history-title">마일리지 충전/출금 신청내역</h3>
+        <div class="mileage-history-table-wrap">
+          <table class="mileage-history-table">
+            <thead>
               <tr>
-                <th scope="row">결제수단</th>
+                <th scope="col">신청시간</th>
+                <th scope="col">신청금액</th>
+                <th scope="col">처리계좌</th>
+                <th scope="col">상태</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-history-kind="charge" data-history-state="pending">
+                <td><strong>2026/05/18</strong><span>09:44:09</span></td>
+                <td class="amount amount-charge"><strong>7,000원</strong><span>충전신청</span></td>
+                <td class="bank">기업은행 18116590601015 (유지훈)</td>
                 <td>
-                  <div class="mileage-methods" role="radiogroup" aria-label="결제수단 선택">
-                    <label><input type="radio" name="charge_method" checked><span>무통장입금</span></label>
-                    <label><input type="radio" name="charge_method" disabled><span>신용카드</span></label>
-                    <label><input type="radio" name="charge_method" disabled><span>휴대폰결제</span></label>
-                    <label><input type="radio" name="charge_method" disabled><span>실시간계좌이체</span></label>
+                  <div class="mileage-history-state-cell">
+                    <span class="mileage-history-badge is-charge-pending">충전대기</span>
+                    <button class="mileage-history-cancel" type="button" data-cancel-label="충전취소완료">충전취소</button>
                   </div>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">계좌안내</th>
-                <td><p class="mileage-inline-help is-alert">충전신청 시 계좌번호가 표시됩니다.</p></td>
-              </tr>
-              <tr>
-                <th scope="row">보유 마일리지</th>
-                <td>900원</td>
-              </tr>
-              <tr>
-                <th scope="row">입금하실금액</th>
+              <tr data-history-kind="charge" data-history-state="complete">
+                <td><strong>2026/05/18</strong><span>08:21:33</span></td>
+                <td class="amount amount-charge"><strong>15,000원</strong><span>충전완료</span></td>
+                <td class="bank">카카오뱅크 3333-02-5522111 (유지훈)</td>
                 <td>
-                  <label class="mileage-amount-field" for="chargeAmount">
-                    <input id="chargeAmount" name="charge_amount" type="text" inputmode="numeric" value="0" aria-describedby="chargeAmountHelp chargeAmountMin">
-                    <span>원</span>
-                  </label>
-                  <p class="mileage-inline-help is-alert" id="chargeAmountHelp">입금금액이 다르실 경우 적립되지 않습니다.</p>
-                  <p class="mileage-inline-help" id="chargeAmountMin">최소 2,000원부터 충전 가능합니다.</p>
+                  <div class="mileage-history-state-cell">
+                    <span class="mileage-history-badge is-charge-complete">충전완료</span>
+                  </div>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">충전 마일리지</th>
-                <td><strong class="mileage-expected-value" id="expectedMileage">0원</strong> <span class="mileage-muted">(수수료 1,000원)</span></td>
+              <tr data-history-kind="withdraw" data-history-state="pending">
+                <td><strong>2026/05/17</strong><span>20:15:04</span></td>
+                <td class="amount amount-withdraw"><strong>12,000원</strong><span>출금신청</span></td>
+                <td class="bank">국민은행 123456-78-901234 (유지훈)</td>
+                <td>
+                  <div class="mileage-history-state-cell">
+                    <span class="mileage-history-badge is-withdraw-pending">출금대기</span>
+                    <button class="mileage-history-cancel" type="button" data-cancel-label="출금취소완료">출금취소</button>
+                  </div>
+                </td>
               </tr>
-              <tr>
-                <th scope="row">충전한도</th>
-                <td><button class="mileage-limit-button" type="button">카드사별 충전한도</button></td>
+              <tr data-history-kind="withdraw" data-history-state="complete">
+                <td><strong>2026/05/16</strong><span>14:02:51</span></td>
+                <td class="amount amount-withdraw"><strong>25,000원</strong><span>출금완료</span></td>
+                <td class="bank">신한은행 110-482-993210 (유지훈)</td>
+                <td>
+                  <div class="mileage-history-state-cell">
+                    <span class="mileage-history-badge is-withdraw-complete">출금완료</span>
+                  </div>
+                </td>
+              </tr>
+              <tr data-history-kind="charge" data-history-state="canceled">
+                <td><strong>2026/05/15</strong><span>11:27:08</span></td>
+                <td class="amount amount-charge"><strong>5,000원</strong><span>충전취소완료</span></td>
+                <td class="bank">토스뱅크 1000-3812-6621 (유지훈)</td>
+                <td>
+                  <div class="mileage-history-state-cell">
+                    <span class="mileage-history-badge is-canceled">취소완료</span>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <div class="mileage-submit-row">
-          <button class="mileage-submit-button" type="button">충전신청</button>
         </div>
       </section>
     </section>
@@ -214,31 +219,36 @@
   <footer class="site-footer"><div class="footer-inner"><nav class="footer-links"><a href="../faq/index.html#terms-service">이용약관</a><span>|</span><a href="../faq/index.html#terms-trade">아이템거래약관</a><span>|</span><a href="../faq/index.html#privacy">개인정보취급방침</a><span>|</span><a href="../notice_list/index.html#partnership">광고/제휴문의</a></nav><div class="company-info"><img src="../../assets/images/logo_320x104.png" alt="게임마켓 로고"><p>상호 : 겜마톡 / 대표 : 유지훈 / 사업자등록번호 : 807-16-01721 / 통신판매업 : 2024-전주덕진-0100 / 고객센터 : 1644-4176<br>전라북도 전주시 덕진구 가재미로 83(인후동1가) / 이메일 : contact@gamemarket.kr<br>COPYRIGHT (C) GAME MARKET. ALL RIGHTS RESERVED.</p></div></div></footer>
   <script>
     (function () {
-      var amountInput = document.getElementById('chargeAmount');
-      var expectedMileage = document.getElementById('expectedMileage');
+      var cancelButtons = document.querySelectorAll('.mileage-history-cancel');
 
-      if (!amountInput || !expectedMileage) {
+      if (!cancelButtons.length) {
         return;
       }
 
-      function formatNumber(value) {
-        return value.toLocaleString('ko-KR');
-      }
+      cancelButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var row = button.closest('tr');
+          var badge = row ? row.querySelector('.mileage-history-badge') : null;
+          var amountMeta = row ? row.querySelector('.amount span') : null;
+          var cancelLabel = button.getAttribute('data-cancel-label') || '취소완료';
 
-      function updateExpectedMileage() {
-        var amount = Number(amountInput.value.replace(/[^0-9]/g, '')) || 0;
-        var chargeMileage = Math.max(amount - 1000, 0);
+          if (!row || !badge) {
+            return;
+          }
 
-        amountInput.value = formatNumber(amount);
-        expectedMileage.textContent = formatNumber(chargeMileage) + '원';
-      }
+          row.setAttribute('data-history-state', 'canceled');
+          badge.className = 'mileage-history-badge is-canceled';
+          badge.textContent = cancelLabel;
 
-      amountInput.addEventListener('input', updateExpectedMileage);
-      amountInput.addEventListener('focus', function () {
-        amountInput.select();
+          if (amountMeta) {
+            amountMeta.textContent = cancelLabel;
+          }
+
+          button.textContent = '취소완료';
+          button.disabled = true;
+          button.setAttribute('aria-disabled', 'true');
+        });
       });
-
-      updateExpectedMileage();
     }());
   </script>
   <script src="../../assets/js/search.js"></script>

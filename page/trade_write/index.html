@@ -10,8 +10,18 @@
   <body class="trade-write-body">
     <script>
       (function () {
-        if (new URLSearchParams(location.search).get("status") === "buy")
+        var status = new URLSearchParams(location.search).get("status");
+        if (status === "buy")
           document.body.classList.add("trade-write-buy-mode");
+
+        document.addEventListener("DOMContentLoaded", function () {
+          var activeLink =
+            status === "buy"
+              ? document.querySelector(".trade-write-buy-link")
+              : document.querySelector(".trade-write-sell-link");
+
+          if (activeLink) activeLink.setAttribute("aria-current", "page");
+        });
       })();
     </script>
     <h1 class="sr-only">게임마켓 거래 물품 등록</h1>
@@ -182,11 +192,11 @@
             </div>
             <div class="member-row">
               <span>마일리지</span
-              ><a href="../mypage/index.html#mileage">0 <small>원</small></a>
+              ><a href="../mileage/index.html">0 <small>원</small></a>
             </div>
             <div class="member-row">
               <span>적립금</span
-              ><a class="red" href="../mypage/index.html#point"
+              ><a class="red" href="../point/index.html"
                 >0 <small>원</small></a
               >
             </div>

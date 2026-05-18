@@ -3688,9 +3688,681 @@ input {
   color: var(--primary);
 }
 
+.mileage-page {
+  background: #fff;
+}
+
+.mileage-charge-wrap {
+  display: grid;
+  gap: 22px;
+}
+
+.mileage-page-title {
+  margin: 0;
+  padding: 4px;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+.mileage-secondary-button,
+.mileage-text-action,
+.mileage-limit-button,
+.mileage-history-cancel,
+.ledger-tag,
+.mileage-history-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 92px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.mileage-summary-card,
+.mileage-charge-card {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.06);
+}
+
+.mileage-summary-card {
+  padding: 26px 28px;
+}
+
+.mileage-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.mileage-summary-item {
+  display: grid;
+  gap: 6px;
+  place-items: center;
+  padding: 28px 20px;
+  background: #fcfcfd;
+}
+
+.mileage-summary-item + .mileage-summary-item {
+  border-left: 1px solid var(--line);
+}
+
+.mileage-summary-item strong {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.mileage-summary-item span {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.mileage-summary-item .is-mileage {
+  color: #2563eb;
+}
+
+.mileage-summary-item .is-point {
+  color: #ef4444;
+}
+
+.mileage-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.mileage-quick-links a {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.mileage-quick-links a:hover,
+.mileage-quick-links a[aria-current="page"] {
+  border-color: rgba(254, 85, 2, 0.42);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.mileage-charge-card {
+  padding: 24px;
+}
+
+.mileage-charge-heading {
+  position: relative;
+  margin: 0 0 14px;
+  padding-left: 16px;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.mileage-charge-heading::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  content: "";
+  transform: translateY(-50%);
+}
+
+.mileage-charge-notice {
+  margin-bottom: 18px;
+  padding: 20px 22px;
+  border: 1px solid #dbe3eb;
+  border-radius: 16px;
+  background: #f7fafc;
+}
+
+.mileage-charge-notice .notice-emphasis {
+  margin: 0 0 8px;
+  color: #ef4444;
+  font-weight: 900;
+}
+
+.mileage-charge-notice ul {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: #4b5563;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.mileage-charge-notice--compact {
+  margin-bottom: 24px;
+}
+
+.mileage-charge-notice .notice-strong {
+  margin: 0;
+  color: #111827;
+  font-weight: 900;
+}
+
+.mileage-charge-table th {
+  width: 26%;
+}
+
+.mileage-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.mileage-methods label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mileage-methods input {
+  accent-color: var(--primary);
+}
+
+.mileage-methods input:disabled + span {
+  color: #9ca3af;
+}
+
+.mileage-amount-field {
+  display: inline-flex;
+  align-items: center;
+  min-width: min(320px, 100%);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.mileage-amount-field input {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 0;
+  outline: 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.mileage-amount-field--narrow {
+  min-width: min(240px, 100%);
+}
+
+.mileage-amount-field span {
+  flex: 0 0 auto;
+  padding: 0 16px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.mileage-inline-help {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mileage-inline-help.is-alert {
+  color: #ef4444;
+}
+
+.mileage-inline-help--spaced {
+  margin-top: 0;
+}
+
+.mileage-inline-value {
+  color: #ef4444;
+  font-weight: 900;
+}
+
+.mileage-expected-value {
+  color: var(--primary);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.mileage-muted {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mileage-account-box {
+  display: grid;
+  gap: 8px;
+}
+
+.mileage-text-action {
+  width: fit-content;
+  border: 1px solid var(--line);
+  background: #f9fafb;
+  color: var(--muted);
+}
+
+.mileage-text-action:hover {
+  border-color: rgba(254, 85, 2, 0.4);
+  color: var(--primary);
+}
+
+.mileage-result-value {
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.mileage-limit-button {
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.mileage-submit-row {
+  margin-top: 18px;
+}
+
+.mileage-submit-row.is-withdraw {
+  display: block;
+}
+
+.mileage-submit-button {
+  width: 100%;
+  height: 50px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.mileage-submit-button:hover {
+  background: var(--primary-dark);
+}
+
+.mileage-submit-button.is-withdraw {
+  width: 100%;
+}
+
+.mileage-submit-button.is-inline {
+  width: auto;
+  min-width: 180px;
+  padding: 0 22px;
+}
+
+.mileage-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #4b5563;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.mileage-secondary-button:hover {
+  border-color: rgba(254, 85, 2, 0.32);
+  color: var(--primary);
+}
+
+.account-wrap {
+  display: grid;
+  gap: 22px;
+}
+
+.account-status-card {
+  padding: 22px 24px;
+}
+
+.account-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.account-summary-item {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fafbfc;
+}
+
+.account-summary-item span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.account-summary-item strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.account-table td {
+  gap: 10px;
+}
+
+.account-input,
+.account-select {
+  width: min(420px, 100%);
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.account-input:focus,
+.account-select:focus {
+  outline: 2px solid rgba(254, 85, 2, 0.18);
+  border-color: rgba(254, 85, 2, 0.45);
+}
+
+.account-cert-row {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.account-btn-row {
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 28px;
+  padding-top: 6px;
+}
+
+.mileage-history-table-wrap {
+  overflow-x: auto;
+}
+
+.mileage-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.mileage-history-table thead th {
+  padding: 16px 18px;
+  border-top: 2px solid #111827;
+  border-bottom: 1px solid #cfd8e3;
+  background: #dfeaf9;
+  color: #4b5563;
+  font-size: 15px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.mileage-history-table tbody td {
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+  color: #111827;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.mileage-history-table tbody td strong,
+.mileage-history-table tbody td span {
+  display: block;
+}
+
+.mileage-history-table tbody td span {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.mileage-history-table .amount {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.mileage-history-table .amount strong {
+  font-size: 18px;
+}
+
+.mileage-history-table .amount span {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.mileage-history-table .amount-charge strong {
+  color: #ef4444;
+}
+
+.mileage-history-table .amount-withdraw strong {
+  color: #2563eb;
+}
+
+.mileage-history-table .bank {
+  font-weight: 800;
+}
+
+.mileage-history-state-cell {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.mileage-history-badge {
+  display: inline-block;
+  min-width: 92px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  text-align: center;
+  line-height: 30px;
+}
+
+.mileage-history-badge.is-charge-pending {
+  background: #fff4e8;
+  color: var(--primary);
+}
+
+.mileage-history-badge.is-charge-complete {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.mileage-history-badge.is-withdraw-pending {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.mileage-history-badge.is-withdraw-complete {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.mileage-history-badge.is-canceled {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.mileage-history-cancel {
+  border: 0;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+.mileage-history-cancel:hover {
+  background: var(--primary-dark);
+}
+
+.mileage-history-cancel:disabled {
+  background: #d1d5db;
+  color: #6b7280;
+  cursor: default;
+}
+
+.ledger-table {
+  min-width: 840px;
+}
+
+.ledger-table .ledger-desc {
+  text-align: left;
+  font-weight: 800;
+}
+
+.ledger-table .ledger-change,
+.ledger-table .ledger-balance {
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.ledger-table .ledger-change.is-plus,
+.ledger-table .ledger-balance {
+  color: #ef4444;
+}
+
+.ledger-table .ledger-change.is-minus {
+  color: #ef4444;
+}
+
+.ledger-tag {
+  display: inline-block;
+  min-width: 92px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  color: #111827;
+  text-align: center;
+  line-height: 30px;
+}
+
+.ledger-tag.is-plus {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.ledger-tag.is-minus {
+  background: #fff4e8;
+  color: var(--primary);
+}
+
+.ledger-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.ledger-pagination a {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #4657c8;
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 8px 18px rgba(70, 87, 200, 0.22);
+}
+
 @media (max-width: 760px) {
   .mypage-main {
     padding-bottom: 92px;
+  }
+
+  .mileage-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mileage-summary-item + .mileage-summary-item {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .mileage-charge-card {
+    padding: 18px;
+  }
+
+  .account-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .account-btn-row {
+    justify-content: stretch;
+  }
+
+  .account-btn-row .mileage-secondary-button,
+  .account-btn-row .mileage-submit-button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .mileage-charge-table th,
+  .mileage-charge-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .mileage-charge-table th {
+    padding-bottom: 8px;
+    border-bottom: 0;
+  }
+
+  .mileage-charge-table td {
+    padding-top: 0;
+  }
+
+  .mileage-amount-field {
+    min-width: 100%;
+  }
+
+  .mileage-submit-row.is-withdraw {
+    display: block;
+  }
+
+  .mileage-submit-button.is-withdraw {
+    width: 100%;
+  }
+
+  .mileage-history-table {
+    min-width: 640px;
+  }
+
+  .ledger-table {
+    min-width: 760px;
   }
 
   .my-action-grid,
@@ -5631,6 +6303,508 @@ button.notice-board-back:hover {
   .trade-scroll-top-btn {
     right: 28px;
     bottom: 28px;
+  }
+}
+
+.trade-detail-page {
+  padding: 28px 0 84px;
+  background: #fff;
+}
+
+.trade-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 332px;
+  gap: 24px;
+  align-items: start;
+}
+
+.trade-detail-main {
+  min-width: 0;
+}
+
+.trade-detail-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.trade-detail-breadcrumb a {
+  color: #6b7280;
+}
+
+.trade-detail-sale-chip {
+  display: inline-grid;
+  place-items: center;
+  min-width: auto;
+  height: 24px;
+  padding: 0 8px;
+  font-size: 11px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.trade-detail-head {
+  margin-bottom: 16px;
+}
+
+.trade-detail-head h2 {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: 34px;
+  line-height: 1.35;
+  letter-spacing: -0.04em;
+}
+
+.trade-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.trade-detail-seller {
+  color: #4b5563;
+}
+
+.trade-detail-divider {
+  width: 1px;
+  height: 12px;
+  background: #d1d5db;
+}
+
+.trade-detail-muted {
+  color: #6b7280;
+}
+
+.trade-detail-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid rgba(254, 85, 2, 0.35);
+  border-radius: 6px;
+  background: #fff4e8;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.trade-detail-card,
+.trade-detail-order-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.04);
+}
+
+.trade-detail-card {
+  padding: 20px 22px;
+  margin-bottom: 18px;
+}
+
+.trade-detail-card h3 {
+  margin: 0 0 18px;
+  color: #111827;
+  font-size: 17px;
+}
+
+.trade-detail-price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.trade-detail-price-block span {
+  color: #4b5563;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.trade-detail-price-block strong {
+  color: var(--primary);
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.trade-detail-price-meta {
+  display: flex;
+  gap: 6px;
+  margin: 14px 0 0;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.trade-detail-description {
+  display: grid;
+  gap: 14px;
+  color: #111827;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.trade-detail-description p {
+  margin: 0;
+}
+
+.trade-detail-side {
+  position: sticky;
+  top: 16px;
+}
+
+.trade-detail-order-card {
+  padding: 16px 16px 18px;
+}
+
+.trade-detail-order-block {
+  padding: 16px 10px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.trade-detail-order-block:last-of-type {
+  border-bottom: 0;
+}
+
+.trade-detail-order-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.trade-detail-order-head strong,
+.trade-detail-label {
+  display: block;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.trade-detail-qty-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.trade-detail-qty-summary strong {
+  color: var(--primary);
+  font-size: 15px;
+}
+
+.trade-detail-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trade-detail-step,
+.trade-detail-qty-input,
+.trade-detail-subtle-btn,
+.trade-detail-inline-input,
+.trade-detail-apply-btn,
+.trade-detail-chat-btn,
+.trade-detail-pay-btn,
+.trade-detail-pay-tab {
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.trade-detail-step {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #6b7280;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.trade-detail-qty-input {
+  width: 52px;
+  height: 36px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111827;
+  font-size: 15px;
+  text-align: center;
+}
+
+.trade-detail-input,
+.trade-detail-inline-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  color: #111827;
+  font-size: 14px;
+}
+
+.trade-detail-order-block > .trade-detail-label {
+  margin-bottom: 10px;
+}
+
+.trade-detail-fieldset {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  border: 0;
+}
+
+.trade-detail-fieldset legend {
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.trade-detail-option {
+  display: block;
+}
+
+.trade-detail-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.trade-detail-option span {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  color: #4b5563;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.trade-detail-option span::before {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border: 1px solid #9ca3af;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+}
+
+.trade-detail-option.is-selected span {
+  border-color: rgba(254, 85, 2, 0.35);
+  background: #fff4e8;
+  color: var(--primary);
+}
+
+.trade-detail-option.is-selected span::before {
+  border-color: rgba(254, 85, 2, 0.35);
+  background: radial-gradient(circle, var(--primary) 0 40%, #fff 45% 100%);
+}
+
+.trade-detail-option small {
+  margin-left: 4px;
+  color: #6b7280;
+  font-size: 11px;
+}
+
+.trade-detail-payment-head,
+.trade-detail-coupon-row,
+.trade-detail-mileage-row,
+.trade-detail-mileage-balance,
+.trade-detail-total-row,
+.trade-detail-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.trade-detail-payment-head {
+  margin-bottom: 12px;
+}
+
+.trade-detail-payment-head a {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.trade-detail-pay-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.trade-detail-pay-tab {
+  height: 38px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111827;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.trade-detail-pay-tab.is-active {
+  border-color: rgba(254, 85, 2, 0.35);
+  background: #fff4e8;
+  color: var(--primary);
+}
+
+.trade-detail-coupon-row p,
+.trade-detail-mileage-row p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.trade-detail-subtle-btn,
+.trade-detail-apply-btn {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #4b5563;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.trade-detail-inline-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trade-detail-inline-input {
+  width: 62px;
+  text-align: right;
+}
+
+.trade-detail-apply-btn {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
+.trade-detail-mileage-balance span {
+  color: #4b5563;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.trade-detail-mileage-balance strong {
+  color: var(--primary);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.trade-detail-total-row {
+  padding: 18px 14px 10px;
+}
+
+.trade-detail-total-row span {
+  color: #111827;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.trade-detail-total-row strong {
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.trade-detail-action-row {
+  padding: 8px 14px 0;
+}
+
+.trade-detail-chat-btn,
+.trade-detail-pay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 40px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111827;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.trade-detail-pay-btn {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
+@media (max-width: 980px) {
+  .trade-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .trade-detail-side {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .trade-detail-page {
+    padding-bottom: 96px;
+  }
+
+  .trade-detail-head h2 {
+    font-size: 26px;
+  }
+
+  .trade-detail-price-block {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .trade-detail-payment-head,
+  .trade-detail-coupon-row,
+  .trade-detail-mileage-row,
+  .trade-detail-mileage-balance,
+  .trade-detail-total-row,
+  .trade-detail-action-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .trade-detail-inline-controls {
+    width: 100%;
+  }
+
+  .trade-detail-inline-input,
+  .trade-detail-subtle-btn,
+  .trade-detail-apply-btn,
+  .trade-detail-chat-btn,
+  .trade-detail-pay-btn {
+    width: 100%;
   }
 }
 
