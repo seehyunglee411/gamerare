@@ -1,358 +1,1514 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>게임마켓 거래등록 - 안전한 게임 거래</title>
-  <link rel="icon" href="../../assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-</head>
-<body class="trade-write-body">
-  <h1 class="sr-only">게임마켓 거래등록</h1>
-  <h2 class="sr-only">게임 계정거래 - 인기 게임 계정 안전하게 사고팔기</h2>
-  <h2 class="sr-only">아이템거래 - 최저가 아이템 즉시 거래</h2>
-  <h2 class="sr-only">게임머니 거래 - 메소, 로아 골드 안전거래 지원</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>거래등록 | 게임마켓</title>
+    <link rel="icon" href="../../assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+  </head>
+  <body class="trade-write-body">
+    <script>
+      (function () {
+        if (new URLSearchParams(location.search).get("status") === "buy")
+          document.body.classList.add("trade-write-buy-mode");
+      })();
+    </script>
+    <h1 class="sr-only">게임마켓 거래 물품 등록</h1>
+    <h2 class="sr-only">게임 계정거래 - 인기 게임 계정 안전하게 사고팔기</h2>
+    <h2 class="sr-only">아이템거래 - 최저가 아이템 즉시 거래</h2>
+    <h2 class="sr-only">
+      게임머니 거래 - 메소, 로아 골드, 던파 골드 안전거래 지원
+    </h2>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="../../index.html" aria-label="게임마켓 홈">
-        <img src="../../assets/images/logo_320x104.png" alt="게임마켓 로고">
-      </a>
-      <nav class="utility-nav" aria-label="회원 메뉴">
-        <a href="../chat_iframe/chat_group_list/">채팅하기</a>
-        <a href="../notice_list/">고객센터</a>
-        <a href="../login/">로그아웃</a>
-      </nav>
-      <button class="mobile-menu-button" type="button" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
-    </div>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../../index.html" aria-label="게임마켓 홈">
+          <img src="../../assets/images/logo_320x104.png" alt="게임마켓 로고" />
+        </a>
+        <nav class="utility-nav" aria-label="회원 메뉴">
+          <a href="../chat_iframe/chat_group_list/index.html">채팅하기</a>
+          <a href="../notice_list/index.html">고객센터</a>
+          <a href="../login/index.html">로그아웃</a>
+        </nav>
+        <button class="mobile-menu-button" type="button" aria-label="메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
 
-    <section class="search-area" aria-label="거래 검색">
-      <div class="search-wrap">
-        <div class="search-tabs" aria-label="거래 유형">
-          <label class="tab active"><input type="radio" name="header-type" value="sell" checked><span>팝니다</span></label>
-          <label class="tab"><input type="radio" name="header-type" value="buy"><span>삽니다</span></label>
-        </div>
-        <div class="search-box">
-          <input type="search" placeholder="게임명을 입력해주세요!" aria-label="게임명 검색">
-          <button type="button" aria-label="검색">검색</button>
-        </div>
-        <div class="search-dropdown">
-          <div class="search_box">
-            <ul class="game_list">
-            <li class="game s3"><a href="../trade/?gm=3&krgame=메이플스토리월드&krserver=전체서버&type=sell">메이플스토리월드</a></li>
-            <li class="game s13"><a href="../trade/?gm=13&krgame=바람의나라 클래식&krserver=전체서버&type=sell">바람의나라 클래식</a></li>
-            <li class="game s14"><a href="../trade/?gm=14&krgame=로스트아크&krserver=전체서버&type=sell">로스트아크</a></li>
-            <li class="game s15"><a href="../trade/?gm=15&krgame=메이플스토리&krserver=전체서버&type=sell">메이플스토리</a></li>
-            <li class="game s16"><a href="../trade/?gm=16&krgame=던전앤파이터&krserver=전체서버&type=sell">던전앤파이터</a></li>
-            <li class="game s17"><a href="../trade/?gm=17&krgame=서든어택&krserver=전체서버&type=sell">서든어택</a></li>
-            <li class="game s18"><a href="../trade/?gm=18&krgame=패스오브엑자일2&krserver=전체서버&type=sell">패스오브엑자일2</a></li>
-            <li class="game s31"><a href="../trade/?gm=31&krgame=오딘:발할라라이징&krserver=전체서버&type=sell">오딘:발할라라이징</a></li>
-            <li class="game s32"><a href="../trade/?gm=32&krgame=크레이지아케이드&krserver=전체서버&type=sell">크레이지아케이드</a></li>
-            <li class="game s33"><a href="../trade/?gm=33&krgame=메이플스토리M&krserver=전체서버&type=sell">메이플스토리M</a></li>
-            <li class="game s34"><a href="../trade/?gm=34&krgame=패스오브엑자일&krserver=전체서버&type=sell">패스오브엑자일</a></li>
-            <li class="game s35"><a href="../trade/?gm=35&krgame=디아블로4&krserver=전체서버&type=sell">디아블로4</a></li>
-            <li class="game s41"><a href="../trade/?gm=41&krgame=겟앰프드&krserver=전체서버&type=sell">겟앰프드</a></li>
-            <li class="game s42"><a href="../trade/?gm=42&krgame=디아블로2:레저렉션&krserver=전체서버&type=sell">디아블로2:레저렉션</a></li>
-            <li class="game s43"><a href="../trade/?gm=43&krgame=리니지m&krserver=전체서버&type=sell">리니지m</a></li>
-            <li class="game s44"><a href="../trade/?gm=44&krgame=피파온라인4&krserver=전체서버&type=sell">피파온라인4</a></li>
-            <li class="game s45"><a href="../trade/?gm=45&krgame=배틀그라운드&krserver=전체서버&type=sell">배틀그라운드</a></li>
-            <li class="game s46"><a href="../trade/?gm=46&krgame=발로란트&krserver=전체서버&type=sell">발로란트</a></li>
-            <li class="game s47"><a href="../trade/?gm=47&krgame=오버워치&krserver=전체서버&type=sell">오버워치</a></li>
-            <li class="game s48"><a href="../trade/?gm=48&krgame=슈퍼바이브&krserver=전체서버&type=sell">슈퍼바이브</a></li>
-            <li class="game s49"><a href="../trade/?gm=49&krgame=월드 오브 워 크래프트&krserver=전체서버&type=sell">월드 오브 워 크래프트</a></li>
-            <li class="game s50"><a href="../trade/?gm=50&krgame=원신&krserver=전체서버&type=sell">원신</a></li>
-            <li class="game s51"><a href="../trade/?gm=51&krgame=뱀피르&krserver=전체서버&type=sell">뱀피르</a></li>
-            <li class="game s52"><a href="../trade/?gm=52&krgame=검은사막&krserver=전체서버&type=sell">검은사막</a></li>
-            <li class="game s53"><a href="../trade/?gm=53&krgame=RF온라인넥스트&krserver=전체서버&type=sell">RF온라인넥스트</a></li>
-            <li class="game s54"><a href="../trade/?gm=54&krgame=로드나인&krserver=전체서버&type=sell">로드나인</a></li>
-            <li class="game s55"><a href="../trade/?gm=55&krgame=나이트크로우&krserver=전체서버&type=sell">나이트크로우</a></li>
-            <li class="game s56"><a href="../trade/?gm=56&krgame=레전드 오브이미르&krserver=전체서버&type=sell">레전드 오브이미르</a></li>
-            <li class="game s57"><a href="../trade/?gm=57&krgame=열혈강호:귀환&krserver=전체서버&type=sell">열혈강호:귀환</a></li>
-            <li class="game s58"><a href="../trade/?gm=58&krgame=레이븐2&krserver=전체서버&type=sell">레이븐2</a></li>
-            <li class="game s59"><a href="../trade/?gm=59&krgame=바람의나라:연&krserver=전체서버&type=sell">바람의나라:연</a></li>
-            <li class="game s60"><a href="../trade/?gm=60&krgame=트라이워M&krserver=전체서버&type=sell">트라이워M</a></li>
-            <li class="game s61"><a href="../trade/?gm=61&krgame=던전앤파이터 모바일&krserver=전체서버&type=sell">던전앤파이터 모바일</a></li>
-            <li class="game s62"><a href="../trade/?gm=62&krgame=더스타라이트&krserver=전체서버&type=sell">더스타라이트</a></li>
-            <li class="game s63"><a href="../trade/?gm=63&krgame=마비노기모바일&krserver=전체서버&type=sell">마비노기모바일</a></li>
-            <li class="game s64"><a href="../trade/?gm=64&krgame=아이온2&krserver=전체서버&type=sell">아이온2</a></li>
-            <li class="game s65"><a href="../trade/?gm=65&krgame=아스텔리아M&krserver=전체서버&type=sell">아스텔리아M</a></li>
-            <li class="game s66"><a href="../trade/?gm=66&krgame=뮤 모나크&krserver=전체서버&type=sell">뮤 모나크</a></li>
-            <li class="game s67"><a href="../trade/?gm=67&krgame=심야귀담&krserver=전체서버&type=sell">심야귀담</a></li>
-            <li class="game s68"><a href="../trade/?gm=68&krgame=리그오브레전드&krserver=전체서버&type=sell">리그오브레전드</a></li>
-            <li class="game s69"><a href="../trade/?gm=69&krgame=리니지클래식&krserver=전체서버&type=sell">리니지클래식</a></li>
-            <li class="game s70"><a href="../trade/?gm=70&krgame=로블록스&krserver=전체서버&type=sell">로블록스</a></li>
-            <li class="game s71"><a href="../trade/?gm=71&krgame=테일즈런너&krserver=전체서버&type=sell">테일즈런너</a></li>
-            <li class="game s72"><a href="../trade/?gm=72&krgame=명조:워더링웨이브&krserver=전체서버&type=sell">명조:워더링웨이브</a></li>
-            <li class="game s73"><a href="../trade/?gm=73&krgame=원신&krserver=전체서버&type=sell">원신</a></li>
-            <li class="game s74"><a href="../trade/?gm=74&krgame=명일방주:엔드필드&krserver=전체서버&type=sell">명일방주:엔드필드</a></li>
-            </ul>
-            <div id="server_list" class="server-list-panel">
-              <div class="server-list-title">인기게임</div>
-              <ul class="server_list server_list2">
-              <li class="server-game-card"><a href="../trade/?gm=14&krgame=로스트아크&krserver=전체서버&type=sell"><span class="server-game-logo-text">LA</span><span class="server-game-name">로스트아크</span></a></li>
-              <li class="server-game-card"><a href="../trade/?gm=15&krgame=메이플스토리&krserver=전체서버&type=sell"><span class="server-game-logo-text">MS</span><span class="server-game-name">메이플스토리</span></a></li>
-              <li class="server-game-card"><a href="../trade/?gm=16&krgame=던전앤파이터&krserver=전체서버&type=sell"><span class="server-game-logo-text">DF</span><span class="server-game-name">던전앤파이터</span></a></li>
-              <li class="server-game-card"><a href="../trade/?gm=3&krgame=메이플스토리월드&krserver=전체서버&type=sell"><span class="server-game-logo-text">MW</span><span class="server-game-name">메이플스토리월드</span></a></li>
-              <li class="server-game-card"><a href="../trade/?gm=69&krgame=리니지클래식&krserver=전체서버&type=sell"><span class="server-game-logo-text">LC</span><span class="server-game-name">리니지클래식</span></a></li>
-              <li class="server-game-card"><a href="../trade/?gm=33&krgame=메이플스토리M&krserver=전체서버&type=sell"><span class="server-game-logo-text">MM</span><span class="server-game-name">메이플스토리M</span></a></li>
-              <li class="server-game-card"><a href="../trade/?gm=17&krgame=서든어택&krserver=전체서버&type=sell"><span class="server-game-logo-text">SA</span><span class="server-game-name">서든어택</span></a></li>
-              <li class="server-game-card"><a href="../trade/?gm=13&krgame=바람의나라 클래식&krserver=전체서버&type=sell"><span class="server-game-logo-text">BC</span><span class="server-game-name">바람의나라 클래식</span></a></li>
-              <li class="server-game-card"><a href="../trade/?gm=64&krgame=아이온2&krserver=전체서버&type=sell"><span class="server-game-logo-text">A2</span><span class="server-game-name">아이온2</span></a></li>
+      <section class="search-area" aria-label="거래 검색">
+        <div class="search-wrap">
+          <div class="search-tabs" aria-label="거래 유형">
+            <label class="tab active"
+              ><input
+                type="radio"
+                name="header-type"
+                value="sell"
+                checked
+              /><span>팝니다</span></label
+            >
+            <label class="tab"
+              ><input type="radio" name="header-type" value="buy" /><span
+                >삽니다</span
+              ></label
+            >
+          </div>
+          <div class="search-box">
+            <input
+              type="search"
+              placeholder="게임명을 입력해주세요!"
+              aria-label="게임명 검색"
+            />
+            <button type="button" aria-label="검색">검색</button>
+          </div>
+          <div class="search-dropdown">
+            <div class="search_box">
+              <ul class="game_list">
+                <li class="game s14">
+                  <a
+                    href="../trade/index.html?gm=14&amp;krgame=로스트아크&amp;krserver=전체서버&amp;type=sell"
+                    >로스트아크</a
+                  >
+                </li>
+                <li class="game s15">
+                  <a
+                    href="../trade/index.html?gm=15&amp;krgame=메이플스토리&amp;krserver=전체서버&amp;type=sell"
+                    >메이플스토리</a
+                  >
+                </li>
+                <li class="game s16">
+                  <a
+                    href="../trade/index.html?gm=16&amp;sv=36&amp;krgame=던전앤파이터&amp;krserver=전체서버&amp;type=sell"
+                    >던전앤파이터</a
+                  >
+                </li>
+                <li class="game s3">
+                  <a
+                    href="../trade/index.html?gm=3&amp;krgame=메이플스토리월드&amp;krserver=전체서버&amp;type=sell"
+                    >메이플스토리월드</a
+                  >
+                </li>
+                <li class="game s17">
+                  <a
+                    href="../trade/index.html?gm=17&amp;krgame=서든어택&amp;krserver=전체서버&amp;type=sell"
+                    >서든어택</a
+                  >
+                </li>
+                <li class="game s33">
+                  <a
+                    href="../trade/index.html?gm=33&amp;krgame=메이플스토리M&amp;krserver=전체서버&amp;type=sell"
+                    >메이플스토리M</a
+                  >
+                </li>
+                <li class="game s69">
+                  <a
+                    href="../trade/index.html?gm=69&amp;krgame=리니지클래식&amp;krserver=전체서버&amp;type=sell"
+                    >리니지클래식</a
+                  >
+                </li>
+                <li class="game s64">
+                  <a
+                    href="../trade/index.html?gm=64&amp;krgame=아이온2&amp;krserver=전체서버&amp;type=sell"
+                    >아이온2</a
+                  >
+                </li>
               </ul>
+              <div id="server_list" class="server-list-panel">
+                <div class="server-list-title">인기게임</div>
+                <ul class="server_list server_list2">
+                  <li class="server-game-card">
+                    <a
+                      href="../trade/index.html?gm=14&amp;krgame=로스트아크&amp;krserver=전체서버&amp;type=sell"
+                      ><span class="server-game-logo-text">LA</span
+                      ><span class="server-game-name">로스트아크</span></a
+                    >
+                  </li>
+                  <li class="server-game-card">
+                    <a
+                      href="../trade/index.html?gm=15&amp;krgame=메이플스토리&amp;krserver=전체서버&amp;type=sell"
+                      ><span class="server-game-logo-text">MS</span
+                      ><span class="server-game-name">메이플스토리</span></a
+                    >
+                  </li>
+                  <li class="server-game-card">
+                    <a
+                      href="../trade/index.html?gm=16&amp;sv=36&amp;krgame=던전앤파이터&amp;krserver=전체서버&amp;type=sell"
+                      ><span class="server-game-logo-text">DF</span
+                      ><span class="server-game-name">던전앤파이터</span></a
+                    >
+                  </li>
+                  <li class="server-game-card">
+                    <a
+                      href="../trade/index.html?gm=3&amp;krgame=메이플스토리월드&amp;krserver=전체서버&amp;type=sell"
+                      ><span class="server-game-logo-text">MW</span
+                      ><span class="server-game-name">메이플스토리월드</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <nav class="main-nav" aria-label="주 메뉴">
-      <a class="trade-write-sell-link" href="./?status=sell" aria-current="page">판매등록</a>
-      <a class="trade-write-buy-link" href="./?status=buy">구매등록</a>
-      <a class="with-badge" href="../game/select/">계정거래 <span>NEW</span></a>
-      <a href="../mypage/">마이룸</a>
-      <a href="../mywrite/">내게시글</a>
-      <a href="../notice_list/">고객센터</a>
-      <a href="../game/select/">전체메뉴</a>
-      <a href="../faq/">FAQ</a>
-    </nav>
-  </header>
-
-  <main class="trade-write-page">
-    <div class="trade-write-layout">
-      <aside class="trade-member-panel" aria-label="내 거래 정보">
-        <section class="member-card">
-          <div class="member-name"><span class="grade-dot">B</span><strong>오리너구리다</strong></div>
-          <div class="member-row"><span>마일리지</span><a href="../mypage/">0 원</a></div>
-          <div class="member-row"><span>적립금</span><a class="red" href="../mypage/">0 원</a></div>
-          <div class="member-links">
-            <a href="../mile_in/">마일리지충전</a>
-            <a href="../mile_out/">마일리지출금</a>
-            <a href="../mypage/">내정보</a>
-            <a href="../mywrite/">내게시글</a>
-          </div>
-          <div class="trade-counts">
-            <a href="../mywrite/"><span>판매중인 거래</span><b>0건</b></a>
-            <a href="../mywrite/"><span>구매중인 거래</span><b>0건</b></a>
-          </div>
-        </section>
-
-        <section class="side-link-card">
-          <a href="../trade/">아이템 거래</a>
-          <details open>
-            <summary>정보&계산기</summary>
-            <a href="../trade/#level-calculator">레벨업 계산기</a>
-            <a href="../trade/#union-info">유니온 정보</a>
-            <a href="../trade/#link-info">링크 정보</a>
-            <a href="../faq/#trade-help">거래 가이드</a>
-          </details>
-        </section>
-
-        <a class="side-banner" href="../notice_list/#partnership">하단 배너</a>
-      </aside>
-
-      <section class="trade-form-panel">
-        <form class="trade-write-form">
-          <div class="trade-form-head">
-            <div>
-              <p class="breadcrumb"><span data-mode-word>판매</span>등록</p>
-              <h2>물품 정보를 입력해 주세요</h2>
-              <p>서버, 물품종류, 가격, 제목과 상세설명을 입력하면 <span data-mode-word>판매</span> 물품이 등록됩니다.</p>
-            </div>
-            <span class="safe-badge">안전거래</span>
-          </div>
-
-          <section class="write-section">
-            <div class="write-title">카테고리 <button type="button" aria-label="서버선택 도움말">?</button></div>
-            <input class="write-input" type="text" placeholder="게임명을 입력해주세요!" value="메이플스토리 > 전체서버 > 메소">
-            <div class="category-picker">
-              <div>
-                <strong>게임선택</strong>
-                <button type="button">메이플스토리월드</button>
-                <button type="button">바람의나라 클래식</button>
-                <button class="active" type="button">메이플스토리</button>
-                <button type="button">로스트아크</button>
-                <button type="button">던전앤파이터</button>
-                <button type="button">서든어택</button>
-                <button type="button">아이온2</button>
-              </div>
-              <div>
-                <strong>서버선택</strong>
-                <button class="active" type="button">전체서버</button>
-                <button type="button">스카니아</button>
-                <button type="button">루나</button>
-                <button type="button">크로아</button>
-                <button type="button">엘리시움</button>
-                <button type="button">오로라</button>
-              </div>
-              <div>
-                <strong>물품종류</strong>
-                <button class="active" type="button">머니</button>
-                <button type="button">아이템</button>
-                <button type="button">기타</button>
-                <button type="button"><span class="new-label">NEW</span>계정</button>
-              </div>
-            </div>
-          </section>
-
-          <section class="write-section compact">
-            <div class="write-title">거래방법</div>
-            <div class="radio-row"><label><input type="radio" checked> 안전거래</label></div>
-          </section>
-
-          <section class="write-section compact">
-            <div class="write-title">거래유형</div>
-            <div class="radio-row"><label><input type="radio" name="trade-kind" checked> <span data-mode-word>판매</span>할래요</label></div>
-          </section>
-
-          <section class="write-section compact">
-            <div class="write-title">물품종류</div>
-            <div class="radio-row"><label><input type="radio" name="item-type" checked> 메소</label><label><input type="radio" name="item-type"> 아이템</label><label><input type="radio" name="item-type"> 기타</label></div>
-          </section>
-
-          <section class="write-section compact">
-            <div class="write-title"><span data-mode-word>판매</span>방법</div>
-            <div class="radio-row"><label><input type="radio" name="sell-method" checked> 한번에<span data-mode-word>판매</span></label><label><input type="radio" name="sell-method"> 분할<span data-mode-word>판매</span></label></div>
-          </section>
-
-          <section class="write-section">
-            <div class="write-title"><span data-mode-word>판매</span>가격</div>
-            <div class="price-grid">
-              <label><span>수량</span><input type="text" placeholder="1"></label>
-              <label><span>단위</span><select><option>억</option><option>만</option><option>천</option></select></label>
-              <span class="between-text">당</span>
-              <label><span>가격</span><input type="text" placeholder="1,750"></label>
-              <span class="between-text">원</span>
-            </div>
-          </section>
-
-          <section class="write-section split-inputs">
-            <div>
-              <div class="write-title">최소수량</div>
-              <label class="floating-field"><input type="text" placeholder="20"><span>최소수량</span></label>
-            </div>
-            <div>
-              <div class="write-title">최대수량</div>
-              <label class="floating-field"><input type="text" placeholder="100"><span>최대수량</span></label>
-            </div>
-          </section>
-
-          <section class="write-section">
-            <div class="write-title">캐릭터명</div>
-            <label class="floating-field"><input type="text" maxlength="12"><span>캐릭터명</span></label>
-            <p class="hint">거래하실 본인의 캐릭터명을 입력하세요. <em>0 / 12</em></p>
-          </section>
-
-          <section class="write-section account-options">
-            <div class="write-title">계정 연동 종류</div>
-            <div class="icon-choice-grid">
-              <label><input type="radio" name="signup_path"><span>넥슨</span></label>
-              <label><input type="radio" name="signup_path"><span>네이버</span></label>
-              <label><input type="radio" name="signup_path"><span>카카오</span></label>
-              <label><input type="radio" name="signup_path"><span>구글</span></label>
-              <label><input type="radio" name="signup_path"><span>페이스북</span></label>
-              <label><input type="radio" name="signup_path"><span>게임사</span></label>
-            </div>
-          </section>
-
-          <section class="write-section">
-            <div class="write-title">제목</div>
-            <label class="floating-field"><input type="text" maxlength="30" placeholder="예) 메소 최저가 24시 거래 가능합니다" data-sell-placeholder="예) 메소 최저가 24시 거래 가능합니다" data-buy-placeholder="예) 메소 구매합니다. 빠른 거래 원합니다"><span>제목</span></label>
-            <p class="hint"><em>0 / 30</em></p>
-          </section>
-
-          <section class="write-section">
-            <div class="write-title">상세설명</div>
-            <p class="write-info">※ 상세설명란입니다. 물품을 자세히 설명해주세요.</p>
-            <div class="editor-mock">
-              <div class="editor-toolbar"><span>H</span><span>B</span><span>I</span><span>목록</span><span>이미지</span><span>링크</span></div>
-              <textarea placeholder="※ 연락처나 개인정보로 연락가능한 수단을 적으시면 제제를 받습니다."></textarea>
-            </div>
-          </section>
-
-          <section class="write-section">
-            <div class="write-title">거래 시작 안내</div>
-            <div class="message-grid">
-              <div>
-                <textarea class="message-input" maxlength="200" placeholder="거래 시 첫 메시지를 입력해주세요"></textarea>
-                <p class="hint"><em>0 / 200</em></p>
-              </div>
-              <div class="message-preview">
-                <p>메시지를 입력하면 미리보기가 표시됩니다</p>
-              </div>
-            </div>
-          </section>
-
-          <section class="write-section">
-            <div class="write-title">확성기 물품 등록</div>
-            <select class="write-input"><option>기간을 선택해주세요.</option><option>1일 (500원)</option><option>7일 (3,500원)</option><option>30일 (15,000원)</option></select>
-            <div class="write-title nested">프리미엄 물품 등록</div>
-            <div class="radio-row"><label><input type="radio" name="premium" checked> 일반 등록</label><label><input type="radio" name="premium"> 프리미엄 등록</label></div>
-            <div class="paid-info">
-              <select><option>기간을 선택해주세요.</option><option>1일 (3,000원)</option><option>7일 (16,500원)</option><option>30일 (55,000원)</option><option>1시간 (200원)</option></select>
-              <p>※ 유료등록 서비스는 선불로 부과됩니다.<br>※ 환불, 취소, 교환, 반환 등이 되지 않으니 신중하게 구매해 주시기 바랍니다.</p>
-            </div>
-          </section>
-
-          <div class="trade-submit-bar">
-            <button class="reset_btn" type="reset">취소</button>
-            <button class="submit_btn" type="button">등록</button>
-          </div>
-        </form>
       </section>
-    </div>
-  </main>
 
-  <nav class="mobile-bottom-nav" aria-label="모바일 빠른 메뉴">
-    <a href="../mypage/">내정보</a>
-    <a href="../mywrite/">판매중(0)</a>
-    <a href="../mywrite/">구매중(0)</a>
-    <a href="../chat_iframe/chat_group_list/">채팅하기</a>
-  </nav>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <nav class="footer-links" aria-label="약관 메뉴">
-        <a href="../faq/#terms-service">이용약관</a><span>|</span>
-        <a href="../faq/#terms-trade">아이템거래약관</a><span>|</span>
-        <a href="../faq/#privacy">개인정보취급방침</a><span>|</span>
-        <a href="../notice_list/#partnership">광고/제휴문의</a>
-      </nav>
-      <div class="company-info">
-        <img src="../../assets/images/logo_320x104.png" alt="게임마켓 로고">
-        <p>상호 : 겜마톡 / 대표 : 유지훈 / 사업자등록번호 : 807-16-01721 / 통신판매업 : 2024-전주덕진-0100 / 고객센터 : 1644-4176<br>전라북도 전주시 덕진구 가재미로 83(인후동1가) / 이메일 : contact@gamemarket.kr<br>겜마톡은 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 겜마톡은 상품 거래정보 및 거래에 대하여 책임을 지지 않습니다.<br>COPYRIGHT (C) GAME MARKET. ALL RIGHTS RESERVED.</p>
+      <div class="mobile-trade-register-strip">
+        <a href="./index.html?status=sell">판매등록</a>
+        <a href="./index.html?status=buy">구매등록</a>
       </div>
-    </div>
-  </footer>
 
-  <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const isBuy = params.get('status') === 'buy';
-      const modeWord = isBuy ? '구매' : '판매';
-      document.title = `게임마켓 ${modeWord}등록 - 안전한 게임 거래`;
-      document.body.classList.toggle('trade-write-buy-mode', isBuy);
+      <nav class="main-nav" aria-label="주 메뉴">
+        <a class="trade-write-sell-link" href="./index.html?status=sell"
+          >판매등록</a
+        >
+        <a class="trade-write-buy-link" href="./index.html?status=buy"
+          >구매등록</a
+        >
+        <a class="with-badge" href="../game/select/index.html"
+          >계정거래 <span>NEW</span></a
+        >
+        <a href="../mypage/index.html">마이룸</a>
+        <a href="../mywrite/index.html">내게시글</a>
+        <a href="../notice_list/index.html">고객센터</a>
+        <a href="../faq/index.html">FAQ</a>
+      </nav>
+    </header>
 
-      document.querySelectorAll('[data-mode-word]').forEach((el) => {
-        el.textContent = modeWord;
-      });
+    <main class="trade-write-page section">
+      <div class="trade-write-layout">
+        <aside class="trade-member-panel" aria-label="내 거래 정보">
+          <section class="member-card">
+            <div class="member-name">
+              <span class="grade-dot">B</span><strong>오리너구리다</strong>
+            </div>
+            <div class="member-row">
+              <span>마일리지</span
+              ><a href="../mypage/index.html#mileage">0 <small>원</small></a>
+            </div>
+            <div class="member-row">
+              <span>적립금</span
+              ><a class="red" href="../mypage/index.html#point"
+                >0 <small>원</small></a
+              >
+            </div>
+            <div class="member-links">
+              <a href="../mile_in/index.html">마일리지충전</a>
+              <a href="../mile_out/index.html">마일리지출금</a>
+              <a href="../mypage/index.html">내정보</a>
+              <a href="../mywrite/index.html">내게시글</a>
+            </div>
+            <div class="trade-counts">
+              <a href="../mywrite/index.html#sell"
+                ><span>판매중인 거래</span><b>0</b>건</a
+              >
+              <a href="../mywrite/index.html#buy"
+                ><span>구매중인 거래</span><b>0</b>건</a
+              >
+            </div>
+          </section>
 
-      document.querySelectorAll('input[name="trade-kind"]').forEach((input) => {
-        input.checked = true;
-      });
+          <section class="side-link-card">
+            <a href="../trade/index.html">아이템 거래</a>
+            <details open>
+              <summary>정보·계산기</summary>
+              <a href="../faq/index.html">레벨업 계산기</a>
+              <a href="../faq/index.html">유니온 정보</a>
+              <a href="../faq/index.html">링크 정보</a>
+              <a href="../faq/index.html">사기예방 안내</a>
+            </details>
+          </section>
+        </aside>
 
-      const sellLink = document.querySelector('.trade-write-sell-link');
-      const buyLink = document.querySelector('.trade-write-buy-link');
-      if (sellLink && buyLink) {
-        sellLink.toggleAttribute('aria-current', !isBuy);
-        buyLink.toggleAttribute('aria-current', isBuy);
-      }
+        <div class="trade-form-panel">
+          <form
+            id="trade-write-sell-form"
+            class="trade-write-form trade-write-form--reference"
+            autocomplete="off"
+            action="#"
+            method="post"
+            novalidate
+          >
+            <input type="hidden" name="gm" id="tw-gm" value="" />
+            <input type="hidden" name="sv" id="tw-sv" value="" />
+            <input type="hidden" name="krgame" id="tw-krgame" value="" />
+            <input type="hidden" name="krserver" id="tw-krserver" value="" />
+            <input type="hidden" name="selltype" id="tw-selltype" value="" />
 
-      const titleInput = document.querySelector('input[name="title"]');
-      if (titleInput) {
-        titleInput.placeholder = isBuy ? titleInput.dataset.buyPlaceholder : titleInput.dataset.sellPlaceholder;
-      }
-    })();
-  </script>
-  <script src="../../assets/js/search.js"></script>
-</body>
+            <section class="tw-section tw-section-head">
+              <div>
+                <p class="tw-crumb">거래등록 · <strong>판매</strong></p>
+                <h2 class="tw-page-title">물품 정보를 입력해 주세요</h2>
+                <p class="tw-page-desc">
+                  카테고리(게임·서버·물품종류)와 가격·제목·상세설명을 입력하면
+                  판매 물품이 등록됩니다.
+                </p>
+              </div>
+              <span class="tw-safe-pill">안전거래</span>
+            </section>
+
+            <!-- 카테고리 -->
+            <section class="tw-section">
+              <div class="tw-section-title-row">
+                <h3 class="tw-section-title">카테고리</h3>
+                <button
+                  type="button"
+                  class="tw-help-trigger"
+                  aria-expanded="false"
+                  aria-controls="tw-help-server"
+                  title="안내"
+                ></button>
+                <div
+                  id="tw-help-server"
+                  class="tw-help-bubble"
+                  role="tooltip"
+                  hidden
+                >
+                  서버선택이란?<br />
+                  · 전체서버 선택 시 모든 서버에 품목이 노출됩니다.<br />
+                  · 원하시는 서버만 선택하면 해당 서버에만 노출됩니다.<br />
+                  · 서버와 무관하게 거래 가능한 물품만 전체서버를 선택해 주세요.
+                </div>
+              </div>
+              <div class="tw-cat-inner">
+                <label
+                  class="tw-sch-label visually-hidden"
+                  for="tw-select-game-input"
+                  >게임 검색</label
+                >
+                <input
+                  type="text"
+                  id="tw-select-game-input"
+                  class="sch_form_sell"
+                  placeholder="게임명을 입력해주세요!"
+                  autocomplete="off"
+                />
+                <div id="tw-sell-server-list" class="sell_server_list" hidden>
+                  <div class="sell_game_list">
+                    <ul
+                      id="tw-game-ul"
+                      class="sell_game_box"
+                      role="listbox"
+                      aria-label="게임 선택"
+                    ></ul>
+                  </div>
+                  <div class="add_server_list">
+                    <ul id="tw-server-ul" role="listbox" aria-label="서버 선택">
+                      <li><span class="stitle">서버선택</span></li>
+                    </ul>
+                  </div>
+                  <div class="add_server_list">
+                    <ul id="tw-item-ul" role="listbox" aria-label="물품종류">
+                      <li><span class="stitle">물품종류</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="tw-selection-summary" id="tw-category-summary">
+                  게임을 검색하거나 선택해 주세요.
+                </p>
+              </div>
+            </section>
+
+            <!-- 거래방법 -->
+            <section class="tw-section tw-section--row">
+              <div class="tw-section-title-row">
+                <h3 class="tw-section-title">거래방법</h3>
+                <button
+                  type="button"
+                  class="tw-help-trigger"
+                  aria-expanded="false"
+                  aria-controls="tw-help-safe"
+                ></button>
+                <div
+                  id="tw-help-safe"
+                  class="tw-help-bubble tw-help-bubble--wide"
+                  hidden
+                >
+                  안전거래란?<br />
+                  겜마톡에서 판매자와 구매자의 거래를 안전하게 중개 해드리는
+                  서비스입니다.<br /><br />
+                  안전거래 수수료는?<br />
+                  구매수수료: 0원 · 판매수수료: 최소 1% ~ 최대 10,000원
+                </div>
+              </div>
+              <div class="basic_radio_row">
+                <label
+                  ><input
+                    type="radio"
+                    name="trade_method"
+                    value="safe"
+                    checked
+                  /><span class="basic_radio_visual"></span
+                  ><span>안전거래</span></label
+                >
+              </div>
+            </section>
+
+            <!-- 거래유형 (판매 화면: 판매만) -->
+            <section class="tw-section tw-section--row">
+              <div class="tw-section-title-row">
+                <h3 class="tw-section-title">거래유형</h3>
+                <button
+                  type="button"
+                  class="tw-help-trigger"
+                  aria-expanded="false"
+                  aria-controls="tw-help-type"
+                ></button>
+                <div id="tw-help-type" class="tw-help-bubble" hidden>
+                  · 판매할래요: 판매 물품이 등록됩니다.<br />
+                  · 구매할래요: 구매등록 페이지에서 이용할 예정입니다.
+                </div>
+              </div>
+              <div class="basic_radio_row">
+                <label
+                  ><input
+                    type="radio"
+                    name="gubun"
+                    value="sell"
+                    checked
+                    data-val="판매"
+                  /><span class="basic_radio_visual"></span
+                  ><span>판매할래요</span></label
+                >
+              </div>
+            </section>
+
+            <!-- 물품종류 (세부) -->
+            <section
+              class="tw-section tw-section--row tw-item-kind-block"
+              id="tw-item-kind-block"
+              hidden
+            >
+              <h3 class="tw-section-title">물품종류</h3>
+              <div class="basic_radio_row">
+                <label
+                  ><input type="radio" name="kind" value="money" /><span
+                    class="basic_radio_visual"
+                  ></span
+                  ><span>메소</span></label
+                >
+                <label
+                  ><input type="radio" name="kind" value="item" /><span
+                    class="basic_radio_visual"
+                  ></span
+                  ><span>아이템</span></label
+                >
+                <label
+                  ><input type="radio" name="kind" value="etc" /><span
+                    class="basic_radio_visual"
+                  ></span
+                  ><span>기타</span></label
+                >
+              </div>
+            </section>
+
+            <!-- 판매방법 -->
+            <section
+              class="tw-section tw-section--row tw-sell-split-section"
+              id="tw-sell-method-section"
+              hidden
+            >
+              <h3 class="tw-section-title">
+                <span class="s_b_txt">판매</span>방법
+              </h3>
+              <div class="basic_radio_row">
+                <label
+                  ><input
+                    type="radio"
+                    name="buy_type"
+                    value="1"
+                    checked
+                    data-val="1"
+                  /><span class="basic_radio_visual"></span
+                  ><span>한번에<span class="s_b_txt">판매</span></span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="buy_type"
+                    value="2"
+                    data-val="2"
+                  /><span class="basic_radio_visual"></span
+                  ><span>분할<span class="s_b_txt">판매</span></span></label
+                >
+              </div>
+            </section>
+
+            <!-- 한번에 판매: 가격 행 -->
+            <section
+              class="tw-section tw-price-once tw-price-panel"
+              id="tw-price-once"
+            >
+              <h3 class="tw-section-title">
+                <span class="s_b_txt">판매</span>가격
+              </h3>
+              <div class="trade_write_input_row_three">
+                <div class="trade_write_input_row tw-fit">
+                  <div class="trade_write_input trade_write_input--sm">
+                    <input
+                      type="text"
+                      inputmode="numeric"
+                      id="sell_count_once"
+                      name="sell_count_once"
+                      class="tw-num-input"
+                      autocomplete="off"
+                      placeholder=" "
+                    />
+                    <span class="trade_write_tag">수량</span>
+                  </div>
+                </div>
+                <div class="trade_write_input_row tw-fit tw-unit-money">
+                  <div class="trade_write_select tw-select-bordered">
+                    <select id="unit_once_money" aria-label="수량 단위">
+                      <option value="천">천</option>
+                      <option value="만" selected>만</option>
+                      <option value="억">억</option>
+                    </select>
+                    <span class="trade_write_tag">단위</span>
+                  </div>
+                </div>
+                <div class="trade_write_input_row tw-fit tw-unit-item hidden">
+                  <div class="trade_write_select tw-select-bordered">
+                    <select id="unit_once_item" aria-label="수량 단위(개)">
+                      <option value="개" selected>개</option>
+                    </select>
+                    <span class="trade_write_tag">단위</span>
+                  </div>
+                </div>
+                <span class="tw-connector">당</span>
+                <div class="trade_write_input_row">
+                  <div class="trade_write_input">
+                    <input
+                      type="text"
+                      inputmode="decimal"
+                      id="price_once"
+                      name="price_once"
+                      class="tw-price-input"
+                      placeholder=" "
+                      autocomplete="off"
+                    />
+                    <span class="trade_write_tag">가격</span>
+                  </div>
+                </div>
+                <span class="tw-unit-won">원</span>
+              </div>
+            </section>
+
+            <!-- 분할 판매 -->
+            <section
+              class="tw-section tw-price-split tw-price-panel hidden"
+              id="tw-price-split"
+            >
+              <h3 class="tw-section-title">
+                <span class="s_b_txt">판매</span>단위 · 가격
+              </h3>
+              <div class="trade_write_input_row_three">
+                <div class="trade_write_input_row tw-fit">
+                  <div class="trade_write_input trade_write_input--sm">
+                    <input
+                      type="text"
+                      inputmode="numeric"
+                      id="sell_count_split"
+                      name="sell_count_split"
+                      class="tw-num-input"
+                      placeholder=" "
+                    />
+                    <span class="trade_write_tag active"
+                      ><span class="s_b_txt">판매</span>단위</span
+                    >
+                  </div>
+                </div>
+                <div class="trade_write_input_row tw-fit tw-unit-money-split">
+                  <div class="trade_write_select tw-select-bordered">
+                    <select id="unit_split_money" aria-label="판매단위">
+                      <option value="천">천</option>
+                      <option value="만" selected>만</option>
+                      <option value="억">억</option>
+                    </select>
+                    <span class="trade_write_tag">단위</span>
+                  </div>
+                </div>
+                <div
+                  class="trade_write_input_row tw-fit tw-unit-item-split hidden"
+                >
+                  <div class="trade_write_select tw-select-bordered">
+                    <select aria-label="개 단위">
+                      <option>개</option>
+                    </select>
+                    <span class="trade_write_tag">단위</span>
+                  </div>
+                </div>
+                <span class="tw-connector">당</span>
+                <div class="trade_write_input_row">
+                  <div class="trade_write_input">
+                    <input
+                      type="text"
+                      inputmode="decimal"
+                      id="price_split"
+                      name="price_split"
+                      class="tw-price-input"
+                      placeholder=" "
+                    />
+                    <span class="trade_write_tag">가격</span>
+                  </div>
+                </div>
+                <span class="tw-unit-won">원</span>
+              </div>
+
+              <h3 class="tw-section-title tw-sub-title">최소수량</h3>
+              <div class="tw-qty-row">
+                <div class="trade_write_input trade_write_input--grow">
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    id="min_qty"
+                    name="min_qty"
+                    placeholder=" "
+                  />
+                  <span class="trade_write_tag">최소수량</span>
+                </div>
+                <div class="tw-step-btns">
+                  <button type="button" class="tw-step-btn" data-tw-min="minus">
+                    −
+                  </button>
+                  <button type="button" class="tw-step-btn" data-tw-min="plus">
+                    +
+                  </button>
+                </div>
+              </div>
+              <p class="tw-field-error" id="tw-min-error" role="alert"></p>
+
+              <h3 class="tw-section-title tw-sub-title">최대수량</h3>
+              <div class="tw-qty-row">
+                <div class="trade_write_input trade_write_input--grow">
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    id="max_qty"
+                    name="max_qty"
+                    placeholder=" "
+                  />
+                  <span class="trade_write_tag">최대수량</span>
+                </div>
+                <div class="tw-step-btns">
+                  <button type="button" class="tw-step-btn" data-tw-max="minus">
+                    −
+                  </button>
+                  <button type="button" class="tw-step-btn" data-tw-max="plus">
+                    +
+                  </button>
+                </div>
+              </div>
+              <p class="tw-field-error" id="tw-max-error" role="alert"></p>
+            </section>
+
+            <!-- 캐릭터명 -->
+            <section class="tw-section">
+              <h3 class="tw-section-title">캐릭터명</h3>
+              <div class="trade_write_input">
+                <input
+                  type="text"
+                  name="charactername"
+                  id="charactername"
+                  maxlength="12"
+                  class="tw-char-input"
+                  placeholder=" "
+                />
+                <span class="trade_write_tag">캐릭터명</span>
+              </div>
+              <div class="tw-chk-meta">
+                <span class="tw-chk-hint"
+                  >거래하실 본인의 캐릭터명을 입력하세요.</span
+                >
+                <span class="tw-chk-count" id="char-count">0 / 12</span>
+              </div>
+            </section>
+
+            <!-- 제목 -->
+            <section class="tw-section">
+              <h3 class="tw-section-title">제목</h3>
+              <div class="trade_write_input">
+                <input
+                  type="text"
+                  name="title"
+                  maxlength="30"
+                  id="trade-title"
+                  placeholder=" "
+                  autocomplete="off"
+                />
+                <span class="trade_write_tag">제목</span>
+              </div>
+              <div class="tw-chk-meta">
+                <span class="tw-chk-hint tw-chk-hint--muted">&nbsp;</span>
+                <span class="tw-chk-count" id="title-count">0 / 30</span>
+              </div>
+            </section>
+
+            <!-- 상세설명 -->
+            <section class="tw-section">
+              <h3 class="tw-section-title">상세설명</h3>
+              <p class="tw-title-info">
+                ※ 상세설명란입니다. 물품을 자세히 설명해 주세요.
+              </p>
+              <div class="tw-editor-shell">
+                <div class="tw-editor-toolbar" aria-hidden="true">
+                  <span>H</span><span>B</span><span>I</span><span>목록</span
+                  ><span>이미지</span><span>링크</span>
+                </div>
+                <textarea
+                  name="detail"
+                  rows="12"
+                  placeholder="※ 연락처나 개인정보로 연락 가능한 수단을 적으시면 제재를 받을 수 있습니다."
+                ></textarea>
+              </div>
+            </section>
+
+            <!-- 거래 시작 안내 -->
+            <section class="tw-section">
+              <div class="tw-section-title-row">
+                <h3 class="tw-section-title">
+                  거래 시작 안내
+                  <abbr
+                    title="거래 시작 시 자동으로 발송되는 첫 안내 메시지를 설정할 수 있습니다."
+                    class="tw-info-tip"
+                    >ⓘ</abbr
+                  >
+                </h3>
+              </div>
+              <div class="tw-first-msg-grid">
+                <div>
+                  <textarea
+                    id="first_message"
+                    name="first_trade_msg"
+                    maxlength="200"
+                    class="tw-first-textarea"
+                    placeholder="거래 시 첫 메시지를 입력해 주세요"
+                  ></textarea>
+                  <div class="tw-chk-meta">
+                    <span class="tw-chk-hint">&nbsp;</span>
+                    <span class="tw-chk-count" id="first-msg-count"
+                      >0 / 200</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="tw-first-preview"
+                  id="first_message_preview"
+                  aria-live="polite"
+                >
+                  <p class="tw-first-preview__empty">
+                    메시지를 입력하면 미리보기가 표시됩니다
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- 확성기 / 프리미엄 -->
+            <section class="tw-section">
+              <div class="tw-section-title-row">
+                <h3 class="tw-section-title">
+                  확성기 물품 등록
+                  <abbr
+                    title="게시글을 카드 형태로 게임별 최상단에 노출하는 유료 옵션입니다."
+                    class="tw-info-tip"
+                    >ⓘ</abbr
+                  >
+                </h3>
+              </div>
+              <div class="trade_write_select_row">
+                <select name="broadcast_expire_date" aria-label="확성기 기간">
+                  <option value="0">기간을 선택해 주세요.</option>
+                  <option value="1">1일 (500원)</option>
+                  <option value="7">7일 (3,500원)</option>
+                  <option value="30">30일 (15,000원)</option>
+                </select>
+              </div>
+
+              <h3 class="tw-section-title tw-sub-title">프리미엄 물품 등록</h3>
+              <div class="basic_radio_row">
+                <label
+                  ><input
+                    type="radio"
+                    name="premium"
+                    value="1"
+                    class="tw-prem-radio"
+                    checked
+                  /><span class="basic_radio_visual"></span
+                  ><span>일반 등록</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="premium"
+                    value="2"
+                    class="tw-prem-radio"
+                  /><span class="basic_radio_visual"></span
+                  ><span>프리미엄 등록</span></label
+                >
+              </div>
+
+              <div class="tw-premium-extra hidden" id="tw-premium-extra">
+                <div class="trade_write_select_row">
+                  <select name="pprice" aria-label="프리미엄 기간">
+                    <option value="0">기간을 선택해 주세요.</option>
+                    <option value="3000">1일 (3,000원)</option>
+                    <option value="16500">7일 (16,500원)</option>
+                    <option value="55000">30일 (55,000원)</option>
+                    <option value="200">1시간 (200원)</option>
+                    <option value="400">2시간 (400원)</option>
+                    <option value="600">3시간 (600원)</option>
+                  </select>
+                </div>
+                <div class="tw-premium-notes">
+                  <p>
+                    <span aria-hidden="true">※ </span>유료등록 서비스는 선불로
+                    부과됩니다.
+                  </p>
+                  <p>
+                    <span aria-hidden="true">※ </span>환불·취소·교환·반품이 되지
+                    않으니 신중하게 선택해 주세요.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <div class="text_wright_btn_wrap">
+              <button class="reset_btn" type="button" id="tw-btn-cancel">
+                취소
+              </button>
+              <button class="submit_btn" type="submit" id="tw-btn-submit">
+                등록
+              </button>
+            </div>
+          </form>
+
+          <!-- 구매등록 (?status=buy) -->
+          <form
+            id="trade-write-buy-form"
+            class="trade-write-form trade-write-form--reference trade-write-form--buy"
+            autocomplete="off"
+            action="#"
+            method="post"
+            novalidate
+            hidden
+          >
+            <input type="hidden" name="gm" id="tw-buy-gm" value="" />
+            <input type="hidden" name="sv" id="tw-buy-sv" value="" />
+            <input type="hidden" name="krgame" id="tw-buy-krgame" value="" />
+            <input
+              type="hidden"
+              name="krserver"
+              id="tw-buy-krserver"
+              value=""
+            />
+            <input
+              type="hidden"
+              name="selltype"
+              id="tw-buy-selltype"
+              value=""
+            />
+
+            <section class="tw-section tw-section-head">
+              <div>
+                <p class="tw-crumb">거래등록 · <strong>구매</strong></p>
+                <h2 class="tw-page-title">구매 물품 정보를 입력해 주세요</h2>
+                <p class="tw-page-desc">
+                  카테고리(게임·서버·물품종류)와 희망 가격·제목·상세설명을
+                  입력하면 구매 희망물이 등록됩니다.
+                </p>
+              </div>
+              <span class="tw-safe-pill">안전거래</span>
+            </section>
+
+            <section class="tw-section">
+              <div class="tw-section-title-row">
+                <h3 class="tw-section-title">카테고리</h3>
+                <button
+                  type="button"
+                  class="tw-help-trigger"
+                  aria-expanded="false"
+                  aria-controls="tw-buy-help-server"
+                  title="안내"
+                ></button>
+                <div
+                  id="tw-buy-help-server"
+                  class="tw-help-bubble"
+                  role="tooltip"
+                  hidden
+                >
+                  서버선택이란?<br />
+                  · 전체서버 선택 시 모든 서버에 품목이 노출됩니다.<br />
+                  · 원하시는 서버만 선택하면 해당 서버에만 노출됩니다.<br />
+                  · 서버와 무관하게 거래 가능한 물품만 전체서버를 선택해 주세요.
+                </div>
+              </div>
+              <div class="tw-cat-inner">
+                <label
+                  class="tw-sch-label visually-hidden"
+                  for="tw-buy-select-game-input"
+                  >게임 검색</label
+                >
+                <input
+                  type="text"
+                  id="tw-buy-select-game-input"
+                  class="sch_form_sell"
+                  placeholder="게임명을 입력해주세요!"
+                  autocomplete="off"
+                />
+                <div
+                  id="tw-buy-sell-server-list"
+                  class="sell_server_list"
+                  hidden
+                >
+                  <div class="sell_game_list">
+                    <ul
+                      id="tw-buy-game-ul"
+                      class="sell_game_box"
+                      role="listbox"
+                      aria-label="게임 선택"
+                    ></ul>
+                  </div>
+                  <div class="add_server_list">
+                    <ul
+                      id="tw-buy-server-ul"
+                      role="listbox"
+                      aria-label="서버 선택"
+                    >
+                      <li><span class="stitle">서버선택</span></li>
+                    </ul>
+                  </div>
+                  <div class="add_server_list">
+                    <ul
+                      id="tw-buy-item-ul"
+                      role="listbox"
+                      aria-label="물품종류"
+                    >
+                      <li><span class="stitle">물품종류</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="tw-selection-summary" id="tw-buy-category-summary">
+                  게임을 검색하거나 선택해 주세요.
+                </p>
+              </div>
+            </section>
+
+            <section class="tw-section tw-section--row">
+              <div class="tw-section-title-row">
+                <h3 class="tw-section-title">거래방법</h3>
+                <button
+                  type="button"
+                  class="tw-help-trigger"
+                  aria-expanded="false"
+                  aria-controls="tw-buy-help-safe"
+                ></button>
+                <div
+                  id="tw-buy-help-safe"
+                  class="tw-help-bubble tw-help-bubble--wide"
+                  hidden
+                >
+                  안전거래란?<br />
+                  겜마톡에서 판매자와 구매자의 거래를 안전하게 중개 해드리는
+                  서비스입니다.<br /><br />
+                  안전거래 수수료는?<br />
+                  구매수수료: 0원 · 판매수수료: 최소 1% ~ 최대 10,000원
+                </div>
+              </div>
+              <div class="basic_radio_row">
+                <label
+                  ><input
+                    type="radio"
+                    name="buy_trade_method"
+                    value="safe"
+                    checked
+                  /><span class="basic_radio_visual"></span
+                  ><span>안전거래</span></label
+                >
+              </div>
+            </section>
+
+            <section class="tw-section tw-section--row">
+              <div class="tw-section-title-row">
+                <h3 class="tw-section-title">거래유형</h3>
+                <button
+                  type="button"
+                  class="tw-help-trigger"
+                  aria-expanded="false"
+                  aria-controls="tw-buy-help-type"
+                ></button>
+                <div id="tw-buy-help-type" class="tw-help-bubble" hidden>
+                  · 판매할래요: 판매 물품이 등록됩니다.<br />
+                  · 구매할래요: 구매 희망물이 등록됩니다.
+                </div>
+              </div>
+              <div class="basic_radio_row">
+                <label
+                  ><input
+                    type="radio"
+                    name="buy_gubun"
+                    value="2"
+                    checked
+                    data-val="구매"
+                  /><span class="basic_radio_visual"></span
+                  ><span>구매할래요</span></label
+                >
+              </div>
+            </section>
+
+            <section
+              class="tw-section tw-section--row tw-item-kind-block tw-buy-only"
+              id="tw-buy-item-kind-block"
+              hidden
+            >
+              <h3 class="tw-section-title">물품종류</h3>
+              <div class="basic_radio_row">
+                <label
+                  ><input type="radio" name="buy_kind" value="money" /><span
+                    class="basic_radio_visual"
+                  ></span
+                  ><span>메소</span></label
+                >
+                <label
+                  ><input type="radio" name="buy_kind" value="item" /><span
+                    class="basic_radio_visual"
+                  ></span
+                  ><span>아이템</span></label
+                >
+                <label
+                  ><input type="radio" name="buy_kind" value="etc" /><span
+                    class="basic_radio_visual"
+                  ></span
+                  ><span>기타</span></label
+                >
+              </div>
+            </section>
+
+            <section
+              class="tw-section tw-section--row tw-sell-split-section"
+              id="tw-buy-method-section"
+              hidden
+            >
+              <h3 class="tw-section-title">
+                <span class="s_b_txt_buy">구매</span>방법
+              </h3>
+              <div class="basic_radio_row">
+                <label
+                  ><input
+                    type="radio"
+                    name="buy_buy_type"
+                    value="1"
+                    checked
+                    data-val="1"
+                  /><span class="basic_radio_visual"></span
+                  ><span
+                    >한번에<span class="s_b_txt_buy">구매</span></span
+                  ></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="buy_buy_type"
+                    value="2"
+                    data-val="2"
+                  /><span class="basic_radio_visual"></span
+                  ><span>분할<span class="s_b_txt_buy">구매</span></span></label
+                >
+              </div>
+            </section>
+
+            <section
+              class="tw-section tw-price-once tw-price-panel"
+              id="tw-buy-price-once"
+            >
+              <h3 class="tw-section-title">
+                <span class="s_b_txt_buy">구매</span>가격
+              </h3>
+              <div class="trade_write_input_row_three">
+                <div class="trade_write_input_row tw-fit">
+                  <div class="trade_write_input trade_write_input--sm">
+                    <input
+                      type="text"
+                      inputmode="numeric"
+                      id="tw-buy-sell-count-once"
+                      name="sell_count_once"
+                      class="tw-num-input"
+                      autocomplete="off"
+                      placeholder=" "
+                    />
+                    <span class="trade_write_tag">수량</span>
+                  </div>
+                </div>
+                <div class="trade_write_input_row tw-fit tw-unit-money">
+                  <div class="trade_write_select tw-select-bordered">
+                    <select id="tw-buy-unit-once-money" aria-label="수량 단위">
+                      <option value="천">천</option>
+                      <option value="만" selected>만</option>
+                      <option value="억">억</option>
+                    </select>
+                    <span class="trade_write_tag">단위</span>
+                  </div>
+                </div>
+                <div class="trade_write_input_row tw-fit tw-unit-item hidden">
+                  <div class="trade_write_select tw-select-bordered">
+                    <select
+                      id="tw-buy-unit-once-item"
+                      aria-label="수량 단위(개)"
+                    >
+                      <option value="개" selected>개</option>
+                    </select>
+                    <span class="trade_write_tag">단위</span>
+                  </div>
+                </div>
+                <span class="tw-connector">당</span>
+                <div class="trade_write_input_row">
+                  <div class="trade_write_input">
+                    <input
+                      type="text"
+                      inputmode="decimal"
+                      id="tw-buy-price-once-field"
+                      name="price_once"
+                      class="tw-price-input"
+                      placeholder=" "
+                      autocomplete="off"
+                    />
+                    <span class="trade_write_tag">가격</span>
+                  </div>
+                </div>
+                <span class="tw-unit-won">원</span>
+              </div>
+            </section>
+
+            <section
+              class="tw-section tw-price-split tw-price-panel hidden"
+              id="tw-buy-price-split"
+            >
+              <h3 class="tw-section-title">
+                <span class="s_b_txt_buy">구매</span>단위 · 가격
+              </h3>
+              <div class="trade_write_input_row_three">
+                <div class="trade_write_input_row tw-fit">
+                  <div class="trade_write_input trade_write_input--sm">
+                    <input
+                      type="text"
+                      inputmode="numeric"
+                      id="tw-buy-sell-count-split"
+                      name="sell_count_split"
+                      class="tw-num-input"
+                      placeholder=" "
+                    />
+                    <span class="trade_write_tag active"
+                      ><span class="s_b_txt_buy">구매</span>단위</span
+                    >
+                  </div>
+                </div>
+                <div class="trade_write_input_row tw-fit tw-unit-money-split">
+                  <div class="trade_write_select tw-select-bordered">
+                    <select id="tw-buy-unit-split-money" aria-label="구매 단위">
+                      <option value="천">천</option>
+                      <option value="만" selected>만</option>
+                      <option value="억">억</option>
+                    </select>
+                    <span class="trade_write_tag">단위</span>
+                  </div>
+                </div>
+                <div
+                  class="trade_write_input_row tw-fit tw-unit-item-split hidden"
+                >
+                  <div class="trade_write_select tw-select-bordered">
+                    <select aria-label="개 단위">
+                      <option>개</option>
+                    </select>
+                    <span class="trade_write_tag">단위</span>
+                  </div>
+                </div>
+                <span class="tw-connector">당</span>
+                <div class="trade_write_input_row">
+                  <div class="trade_write_input">
+                    <input
+                      type="text"
+                      inputmode="decimal"
+                      id="tw-buy-price-split-field"
+                      name="price_split"
+                      class="tw-price-input"
+                      placeholder=" "
+                    />
+                    <span class="trade_write_tag">가격</span>
+                  </div>
+                </div>
+                <span class="tw-unit-won">원</span>
+              </div>
+
+              <h3 class="tw-section-title tw-sub-title">최소수량</h3>
+              <div class="tw-qty-row">
+                <div class="trade_write_input trade_write_input--grow">
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    id="tw-buy-min-qty"
+                    name="min_qty"
+                    placeholder=" "
+                  />
+                  <span class="trade_write_tag">최소수량</span>
+                </div>
+                <div class="tw-step-btns">
+                  <button
+                    type="button"
+                    class="tw-step-btn"
+                    data-tw-buy-min="minus"
+                  >
+                    −
+                  </button>
+                  <button
+                    type="button"
+                    class="tw-step-btn"
+                    data-tw-buy-min="plus"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <p class="tw-field-error" id="tw-buy-min-error" role="alert"></p>
+
+              <h3 class="tw-section-title tw-sub-title">최대수량</h3>
+              <div class="tw-qty-row">
+                <div class="trade_write_input trade_write_input--grow">
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    id="tw-buy-max-qty"
+                    name="max_qty"
+                    placeholder=" "
+                  />
+                  <span class="trade_write_tag">최대수량</span>
+                </div>
+                <div class="tw-step-btns">
+                  <button
+                    type="button"
+                    class="tw-step-btn"
+                    data-tw-buy-max="minus"
+                  >
+                    −
+                  </button>
+                  <button
+                    type="button"
+                    class="tw-step-btn"
+                    data-tw-buy-max="plus"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <p class="tw-field-error" id="tw-buy-max-error" role="alert"></p>
+            </section>
+
+            <!-- 계정 (물품종류 = 계정) -->
+            <section class="tw-section tw-buy-acc" id="tw-buy-acc-link" hidden>
+              <h3 class="tw-section-title">계정 연동 종류</h3>
+              <div class="basic_radio_row tw-acc-path-row">
+                <label
+                  ><input
+                    type="radio"
+                    name="signup_path"
+                    value="nexon"
+                    checked
+                  /><span class="basic_radio_visual"></span
+                  ><span>넥슨</span></label
+                >
+                <label
+                  ><input type="radio" name="signup_path" value="naver" /><span
+                    class="basic_radio_visual"
+                  ></span
+                  ><span>네이버</span></label
+                >
+                <label
+                  ><input type="radio" name="signup_path" value="kakao" /><span
+                    class="basic_radio_visual"
+                  ></span
+                  ><span>카카오</span></label
+                >
+                <label
+                  ><input type="radio" name="signup_path" value="google" /><span
+                    class="basic_radio_visual"
+                  ></span
+                  ><span>구글</span></label
+                >
+              </div>
+            </section>
+            <section
+              class="tw-section tw-buy-acc"
+              id="tw-buy-acc-channel"
+              hidden
+            >
+              <h3 class="tw-section-title">구매 경로</h3>
+              <div class="basic_radio_row">
+                <label
+                  ><input
+                    type="radio"
+                    name="purchase_channel"
+                    value="1"
+                    checked
+                  /><span class="basic_radio_visual"></span
+                  ><span>제 1대</span></label
+                >
+                <label
+                  ><input type="radio" name="purchase_channel" value="2" /><span
+                    class="basic_radio_visual"
+                  ></span
+                  ><span>게임마켓 구매</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="purchase_channel"
+                    value="etc"
+                  /><span class="basic_radio_visual"></span
+                  ><span>기타</span></label
+                >
+              </div>
+            </section>
+            <section class="tw-section tw-buy-acc" id="tw-buy-acc-dual" hidden>
+              <h3 class="tw-section-title">이중연동</h3>
+              <div class="basic_radio_row">
+                <label
+                  ><input type="radio" name="is_dual_linked" value="1" /><span
+                    class="basic_radio_visual"
+                  ></span
+                  ><span>이중연동 O</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="is_dual_linked"
+                    value="0"
+                    checked
+                  /><span class="basic_radio_visual"></span
+                  ><span>이중연동 X</span></label
+                >
+              </div>
+            </section>
+            <section class="tw-section tw-buy-acc" id="tw-buy-acc-price" hidden>
+              <h3 class="tw-section-title">
+                <span class="s_b_txt_buy">구매</span>가격
+              </h3>
+              <div class="trade_write_input">
+                <input
+                  type="text"
+                  inputmode="decimal"
+                  id="tw-buy-account-amount"
+                  name="account_amount"
+                  placeholder=" "
+                />
+                <span class="trade_write_tag">희망 가격</span>
+              </div>
+            </section>
+
+            <section class="tw-section">
+              <h3 class="tw-section-title">캐릭터명</h3>
+              <div class="trade_write_input">
+                <input
+                  type="text"
+                  name="charactername"
+                  id="tw-buy-charactername"
+                  maxlength="12"
+                  placeholder=" "
+                />
+                <span class="trade_write_tag">캐릭터명</span>
+              </div>
+              <div class="tw-chk-meta">
+                <span class="tw-chk-hint"
+                  >거래하실 본인의 캐릭터명을 입력하세요.</span
+                >
+                <span class="tw-chk-count" id="tw-buy-char-count">0 / 12</span>
+              </div>
+            </section>
+
+            <section class="tw-section">
+              <h3 class="tw-section-title">제목</h3>
+              <div class="trade_write_input">
+                <input
+                  type="text"
+                  name="title"
+                  maxlength="30"
+                  id="tw-buy-trade-title"
+                  placeholder=" "
+                  autocomplete="off"
+                />
+                <span class="trade_write_tag">제목</span>
+              </div>
+              <div class="tw-chk-meta">
+                <span class="tw-chk-hint tw-chk-hint--muted">&nbsp;</span>
+                <span class="tw-chk-count" id="tw-buy-title-count">0 / 30</span>
+              </div>
+            </section>
+
+            <section class="tw-section">
+              <h3 class="tw-section-title">상세설명</h3>
+              <p class="tw-title-info">
+                ※ 상세설명란입니다. 원하시는 물품을 자세히 적어 주세요.
+              </p>
+              <div class="tw-editor-shell">
+                <div class="tw-editor-toolbar" aria-hidden="true">
+                  <span>H</span><span>B</span><span>I</span><span>목록</span
+                  ><span>이미지</span><span>링크</span>
+                </div>
+                <textarea
+                  name="detail"
+                  rows="12"
+                  placeholder="※ 연락처나 개인정보로 연락 가능한 수단을 적으시면 제재를 받을 수 있습니다."
+                ></textarea>
+              </div>
+            </section>
+
+            <section class="tw-section">
+              <div class="tw-section-title-row">
+                <h3 class="tw-section-title">
+                  거래 시작 안내
+                  <abbr
+                    title="거래 시작 시 자동으로 발송되는 첫 안내 메시지를 설정할 수 있습니다."
+                    class="tw-info-tip"
+                    >ⓘ</abbr
+                  >
+                </h3>
+              </div>
+              <div class="tw-first-msg-grid">
+                <div>
+                  <textarea
+                    id="tw-buy-first_message"
+                    name="first_trade_msg"
+                    maxlength="200"
+                    class="tw-first-textarea"
+                    placeholder="거래 시 첫 메시지를 입력해 주세요"
+                  ></textarea>
+                  <div class="tw-chk-meta">
+                    <span class="tw-chk-hint">&nbsp;</span>
+                    <span class="tw-chk-count" id="tw-buy-first-msg-count"
+                      >0 / 200</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="tw-first-preview"
+                  id="tw-buy-first_message_preview"
+                  aria-live="polite"
+                >
+                  <p class="tw-first-preview__empty">
+                    메시지를 입력하면 미리보기가 표시됩니다
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section class="tw-section">
+              <div class="tw-section-title-row">
+                <h3 class="tw-section-title">
+                  확성기 물품 등록
+                  <abbr
+                    title="게시글을 카드 형태로 게임별 최상단에 노출하는 유료 옵션입니다."
+                    class="tw-info-tip"
+                    >ⓘ</abbr
+                  >
+                </h3>
+              </div>
+              <div class="trade_write_select_row">
+                <select name="broadcast_expire_date" aria-label="확성기 기간">
+                  <option value="0">기간을 선택해 주세요.</option>
+                  <option value="1">1일 (500원)</option>
+                  <option value="7">7일 (3,500원)</option>
+                  <option value="30">30일 (15,000원)</option>
+                </select>
+              </div>
+
+              <h3 class="tw-section-title tw-sub-title">프리미엄 물품 등록</h3>
+              <div class="basic_radio_row">
+                <label
+                  ><input
+                    type="radio"
+                    name="premium_buy"
+                    value="1"
+                    class="tw-prem-radio-buy"
+                    checked
+                  /><span class="basic_radio_visual"></span
+                  ><span>일반 등록</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="premium_buy"
+                    value="2"
+                    class="tw-prem-radio-buy"
+                  /><span class="basic_radio_visual"></span
+                  ><span>프리미엄 등록</span></label
+                >
+              </div>
+
+              <div class="tw-premium-extra hidden" id="tw-buy-premium-extra">
+                <div class="trade_write_select_row">
+                  <select name="pprice" aria-label="프리미엄 기간">
+                    <option value="0">기간을 선택해 주세요.</option>
+                    <option value="3000">1일 (3,000원)</option>
+                    <option value="16500">7일 (16,500원)</option>
+                    <option value="55000">30일 (55,000원)</option>
+                    <option value="200">1시간 (200원)</option>
+                    <option value="400">2시간 (400원)</option>
+                    <option value="600">3시간 (600원)</option>
+                  </select>
+                </div>
+                <div class="tw-premium-notes">
+                  <p>
+                    <span aria-hidden="true">※ </span>유료등록 서비스는 선불로
+                    부과됩니다.
+                  </p>
+                  <p>
+                    <span aria-hidden="true">※ </span>환불·취소·교환·반품이 되지
+                    않으니 신중하게 선택해 주세요.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <div class="text_wright_btn_wrap">
+              <button class="reset_btn" type="button" id="tw-buy-btn-cancel">
+                취소
+              </button>
+              <button class="submit_btn" type="submit" id="tw-buy-btn-submit">
+                등록
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <nav class="mobile-bottom-nav" aria-label="모바일 빠른 메뉴">
+      <a href="../mypage/index.html">내정보</a>
+      <a href="../mywrite/index.html#sell">판매중(0)</a>
+      <a href="../mywrite/index.html#buy">구매중(0)</a>
+      <a href="../chat_iframe/chat_group_list/index.html">채팅하기</a>
+    </nav>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <nav class="footer-links" aria-label="약관 메뉴">
+          <a href="../faq/index.html#terms-service">이용약관</a><span>|</span>
+          <a href="../faq/index.html#terms-trade">아이템거래약관</a
+          ><span>|</span>
+          <a href="../faq/index.html#privacy">개인정보취급방침</a><span>|</span>
+          <a href="../notice_list/index.html">광고/제휴문의</a>
+        </nav>
+        <div class="company-info">
+          <img src="../../assets/images/logo_320x104.png" alt="게임마켓 로고" />
+          <p>
+            상호 : 겜마톡 / 대표 : 유지훈 / 사업자등록번호 : 807-16-01721 /
+            통신판매업 : 2024-전주덕진-0100 / 고객센터 : 1644-4176<br />전라북도
+            전주시 덕진구 가재미로 83(인후동1가) / 이메일 :
+            contact@gamemarket.kr<br />겜마톡은 통신판매중개자이며 통신판매의
+            당사자가 아닙니다. 따라서 겜마톡은 상품 거래정보 및 거래에 대하여
+            책임을 지지 않습니다.<br />COPYRIGHT (C) GAME MARKET. ALL RIGHTS
+            RESERVED.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../assets/js/trade-write-sell.js"></script>
+    <script src="../../assets/js/search.js"></script>
+  </body>
 </html>
