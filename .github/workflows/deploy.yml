@@ -18,18 +18,11 @@ jobs:
         with:
           node-version: 20
 
-      - name: Minify CSS and JS assets
-        shell: bash
-        run: |
-          set -Eeuo pipefail
+      - name: Install dependencies
+        run: npm ci
 
-          npx --yes clean-css-cli -o assets/css/style.min.css assets/css/style.css
-          mv assets/css/style.min.css assets/css/style.css
-
-          for file in assets/js/*.js; do
-            npx --yes terser "$file" -c -m -o "$file.min"
-            mv "$file.min" "$file"
-          done
+      - name: Build Vite app
+        run: npm run build
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@master
@@ -43,18 +36,17 @@ jobs:
 
             REPO_DIR=/home/ubuntu/gamerare
 
-            cd "$REPO_DIR"
-            git fetch origin main
-            git reset --hard origin/main
+            mkdir -p "$REPO_DIR"
+            rm -rf "$REPO_DIR/dist"
           timeout: 30s
           command_timeout: 10m
 
-      - name: Upload minified assets
+      - name: Upload build output
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          source: "assets/css/style.css,assets/js/*.js"
+          source: "dist"
           target: /home/ubuntu/gamerare

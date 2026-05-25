@@ -1,2 +1,4 @@
 .github/copilot-instructions.md
 *.zip
+node_modules/
+dist/

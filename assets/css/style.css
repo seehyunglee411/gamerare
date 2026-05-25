@@ -1849,7 +1849,6 @@ input {
   font-size: 14px;
 }
 
-
 /* ─── FAQ: 탭 + 아코디언 (faq-board-page) ─── */
 .faq-board-page.page-main {
   padding-bottom: 56px;
@@ -4376,8 +4375,6 @@ input {
   }
 }
 
-
-
 /* ─── 회원정보 수정 (member_modify) ─── */
 .modify-pop-lock {
   overflow: hidden;
@@ -5580,7 +5577,7 @@ input {
   line-height: 1.7;
 }
 
-/* ─── 공지사항 상세 (page/notice_list/detail/) ─── */
+/* ─── 공지사항 상세 ─── */
 .notice-detail-body #wrap.notice-detail-page-wrap {
   background-color: #fff;
 }
