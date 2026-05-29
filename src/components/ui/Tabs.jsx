@@ -51,6 +51,7 @@ Tabs.Item = function TabsItem({
   href,
   onClick,
   variant = "pill",
+  activeClassName,
   className,
   children,
   ...rest
@@ -60,6 +61,7 @@ Tabs.Item = function TabsItem({
   const classes = cn(
     styles.tab,
     active && styles.activeTab,
+    active && activeClassName,
     "cursor-pointer",
     className,
   );

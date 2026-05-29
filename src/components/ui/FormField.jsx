@@ -21,7 +21,7 @@ export function FormField({
   return (
     <label htmlFor={fieldId} className={cn("grid gap-2", className)}>
       {label && (
-        <span className="text-[14px] font-black text-ink">
+        <span className="pl-2 text-[14px] font-black text-ink">
           {label}
           {required && <em className="not-italic ml-1 text-primary">*</em>}
         </span>

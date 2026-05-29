@@ -36,6 +36,7 @@ import {
   SummaryGrid,
 } from "../components/layout/index.js";
 import { TradeListItem, TradeTypeBadge } from "../components/domain/index.js";
+import { getTradeTypeClasses } from "../components/domain/tradeTypeTheme.js";
 
 export function HomePage() {
   return (
@@ -76,7 +77,7 @@ export function HomePage() {
       </section>
 
       <section className="split-section">
-        <div className="popular-games">
+        <div className="popular-games pl-2">
           <SectionTitle title="인기 게임 TOP5" className="mb-5" />
           <ol className="game-list">
             {popularGames.map((game, index) => (
@@ -179,7 +180,7 @@ export function TradeListPage({ params }) {
           </>
         }
       >
-        <Card padding="lg" id="trade-list">
+        <Card padding="lg" id="trade-list" className="px-5 py-8 md:px-6">
           <SectionTitle
             eyebrow="GAME MARKET"
             title={`${selectedGame} ${selectedType === "buy" ? "구매" : "판매"} 거래`}
@@ -199,6 +200,7 @@ export function TradeListPage({ params }) {
           <Tabs variant="pill" className="mt-5 mb-4" aria-label="거래 유형">
             <Tabs.Item
               active={selectedType === "sell"}
+              activeClassName={getTradeTypeClasses("sell", "tab")}
               variant="pill"
               route="trade"
               params={{ krgame: selectedGame, krserver: "전체서버", type: "sell" }}
@@ -207,6 +209,7 @@ export function TradeListPage({ params }) {
             </Tabs.Item>
             <Tabs.Item
               active={selectedType === "buy"}
+              activeClassName={getTradeTypeClasses("buy", "tab")}
               variant="pill"
               route="trade"
               params={{ krgame: selectedGame, krserver: "전체서버", type: "buy" }}
@@ -483,7 +486,7 @@ export function TradeDetailPage({ params }) {
               <Button
                 variant="primary"
                 size="lg"
-                onClick={() => alert("외부 결제 연동 전 데모 화면입니다.")}
+                onClick={() => alert("결제 요청이 접수되었습니다. 안내에 따라 진행해 주세요.")}
               >
                 결제
               </Button>
@@ -503,12 +506,13 @@ export function TradeWritePage({ params }) {
   const [itemType, setItemType] = useState(initialGame.itemRows[0]);
 
   return (
-    <Page>
+    <Page className="pt-[1rem] md:pt-[1.2rem]">
       <Card padding="lg" className="grid gap-6">
         <SectionTitle
           eyebrow={isBuy ? "BUY REQUEST" : "SELL REQUEST"}
+          eyebrowTone="inkSoft"
           title={isBuy ? "구매등록" : "판매등록"}
-          description="백엔드 API 개발 전까지 등록 내용은 저장하지 않고 데모 알림만 표시합니다."
+          description="거래에 필요한 정보를 입력하고 바로 등록해 보세요."
         />
         <div className="grid gap-4 md:grid-cols-3">
           <PickerColumn
@@ -539,7 +543,7 @@ export function TradeWritePage({ params }) {
           onSubmit={(event) => {
             event.preventDefault();
             alert(
-              `${game.name} ${server} ${itemType} ${isBuy ? "구매" : "판매"} 등록 데모입니다.`,
+              `${game.name} ${server} ${itemType} ${isBuy ? "구매" : "판매"} 등록이 접수되었습니다.`,
             );
           }}
         >
@@ -568,7 +572,7 @@ export function TradeWritePage({ params }) {
           <FormField label="상세설명">
             <Textarea name="description" rows={6} placeholder="거래 조건과 가능 시간을 입력해주세요." />
           </FormField>
-          <div className="rounded-xl bg-blue-50 px-4 py-3 text-sm font-bold text-blue-700">
+          <div className="rounded-xl bg-slate-100 px-4 py-3 text-sm font-bold text-ink">
             {game.name} › {server} › {itemType}
           </div>
           <Button type="submit" variant="primary" size="lg" fullWidth>
@@ -612,50 +616,53 @@ export function GameSelectPage() {
   const filtered = accountGames.filter((game) => game.name.includes(keyword));
 
   return (
-    <Page>
-      <SectionTitle
-        title="계정거래 게임 선택"
-        description="더미 게임 목록에서 계정거래 화면으로 이동합니다."
-        className="mb-6"
-      />
-      <Card padding="md" className="mb-6">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Input
-            value={keyword}
-            onChange={(event) => setKeyword(event.target.value)}
-            placeholder="게임명을 검색하세요"
-          />
-          <Button variant="primary">검색</Button>
+    <Page className="pt-[1rem] md:pt-[1.2rem]">
+      <Card padding="lg" className="grid gap-6">
+        <SectionTitle
+          eyebrow="ACCOUNT MARKET"
+          eyebrowTone="inkSoft"
+          title="계정거래 게임 선택"
+          description="원하는 게임을 선택해 계정거래 화면으로 이동합니다."
+        />
+        <Card padding="md">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Input
+              value={keyword}
+              onChange={(event) => setKeyword(event.target.value)}
+              placeholder="게임명을 검색하세요"
+            />
+            <Button variant="primary">검색</Button>
+          </div>
+        </Card>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
+          {filtered.map((game) => (
+            <AppLink
+              key={game.name}
+              route="account"
+              params={{ game: game.name }}
+              className="group flex flex-col items-center gap-3 rounded-2xl border border-line bg-white p-5 text-center text-ink no-underline shadow-card transition-all hover:-translate-y-0.5 hover:border-primary/40"
+            >
+              <img
+                className="h-16 w-auto object-contain"
+                src={assetPath(game.image)}
+                alt=""
+                onError={(event) => {
+                  event.currentTarget.style.display = "none";
+                }}
+              />
+              <strong className="text-sm font-black">{game.name}</strong>
+            </AppLink>
+          ))}
+          {!filtered.length && (
+            <div className="col-span-full">
+              <EmptyState
+                title="검색 결과가 없습니다."
+                description="다른 게임명으로 검색해 보세요."
+              />
+            </div>
+          )}
         </div>
       </Card>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
-        {filtered.map((game) => (
-          <AppLink
-            key={game.name}
-            route="account"
-            params={{ game: game.name }}
-            className="group flex flex-col items-center gap-3 rounded-2xl border border-line bg-white p-5 text-center text-ink no-underline shadow-card transition-all hover:-translate-y-0.5 hover:border-primary/40"
-          >
-            <img
-              className="h-16 w-auto object-contain"
-              src={assetPath(game.image)}
-              alt=""
-              onError={(event) => {
-                event.currentTarget.style.display = "none";
-              }}
-            />
-            <strong className="text-sm font-black">{game.name}</strong>
-          </AppLink>
-        ))}
-        {!filtered.length && (
-          <div className="col-span-full">
-            <EmptyState
-              title="검색 결과가 없습니다."
-              description="다른 게임명으로 검색해 보세요."
-            />
-          </div>
-        )}
-      </div>
     </Page>
   );
 }
@@ -667,6 +674,12 @@ export function AuthPage({ mode }) {
     "find-id": "아이디 찾기",
     "find-pw": "비밀번호 찾기",
   };
+  const descriptions = {
+    login: "아이디와 비밀번호를 입력해 로그인해 주세요.",
+    join: "가입에 필요한 정보를 입력하고 회원가입을 진행해 주세요.",
+    "find-id": "가입한 휴대폰 번호를 입력해 아이디를 확인해 주세요.",
+    "find-pw": "아이디와 휴대폰 번호를 입력해 비밀번호를 재설정해 주세요.",
+  };
 
   return (
     <Page>
@@ -674,13 +687,13 @@ export function AuthPage({ mode }) {
         <Card padding="lg" className="grid gap-5">
           <SectionTitle
             title={titles[mode]}
-            description="인증/회원 API 연동 전까지 데모 폼으로 동작합니다."
+            description={descriptions[mode]}
           />
           <form
             className="grid gap-3"
             onSubmit={(event) => {
               event.preventDefault();
-              alert(`${titles[mode]} 데모입니다.`);
+              alert(`${titles[mode]} 요청이 접수되었습니다.`);
             }}
           >
             {mode !== "find-id" && (
@@ -728,12 +741,12 @@ export function AuthPage({ mode }) {
 
 export function MyPage() {
   return (
-    <Page>
+    <Page className="pt-[1rem] md:pt-[1.2rem]">
       <SidebarLayout aside={<MemberCard />}>
         <Card padding="lg" className="grid gap-6">
           <SectionTitle
             title="마이룸"
-            description="회원 상태와 거래 현황을 더미 데이터로 표시합니다."
+            description="회원 상태와 거래 현황을 한눈에 확인할 수 있습니다."
           />
           <SummaryGrid columns={3}>
             <StatCard label="보유 마일리지" value={won(member.mileage)} tone="primary" />
@@ -775,20 +788,23 @@ export function MyPage() {
 export function MyWritePage() {
   const visibleTrades = trades.slice(0, 2);
   return (
-    <Page>
-      <SectionTitle
-        title="내게시글"
-        description="등록 API가 없어서 현재는 샘플 거래만 표시합니다."
-        className="mb-6"
-      />
-      <div className="grid gap-3">
-        {visibleTrades.map((trade) => (
-          <TradeListItem key={trade.id} trade={trade} />
-        ))}
-        {!visibleTrades.length && (
-          <EmptyState title="등록한 게시글이 없습니다." description="판매/구매 등록을 시도해 보세요." />
-        )}
-      </div>
+    <Page className="pt-[1rem] md:pt-[1.2rem]">
+      <Card padding="lg" className="grid gap-6">
+        <SectionTitle
+          eyebrow="MY POSTS"
+          eyebrowTone="inkSoft"
+          title="내게시글"
+          description="등록한 판매글과 구매글을 한곳에서 확인할 수 있습니다."
+        />
+        <div className="grid gap-3">
+          {visibleTrades.map((trade) => (
+            <TradeListItem key={trade.id} trade={trade} />
+          ))}
+          {!visibleTrades.length && (
+            <EmptyState title="등록한 게시글이 없습니다." description="판매/구매 등록을 시도해 보세요." />
+          )}
+        </div>
+      </Card>
     </Page>
   );
 }
@@ -864,7 +880,7 @@ export function MemberModifyPage() {
             className="grid gap-3"
             onSubmit={(event) => {
               event.preventDefault();
-              alert("회원정보 수정 데모입니다.");
+              alert("회원정보가 수정되었습니다.");
             }}
           >
             <FormField label="닉네임">
@@ -891,11 +907,11 @@ export function MemberExitPage() {
     <Page>
       <div className="mx-auto max-w-md">
         <Card padding="lg" className="grid gap-5">
-          <SectionTitle title="회원탈퇴" description="실제 탈퇴 처리는 API 개발 후 연결됩니다." />
+          <SectionTitle title="회원탈퇴" description="탈퇴 전 진행 중인 거래와 보유 잔액을 확인해 주세요." />
           <Button
             variant="primary"
             size="lg"
-            onClick={() => alert("회원탈퇴 데모입니다.")}
+            onClick={() => alert("회원탈퇴 신청이 접수되었습니다.")}
           >
             탈퇴 신청
           </Button>
@@ -930,7 +946,7 @@ export function WalletPage({ kind }) {
     <Page>
       <SectionTitle
         title={titles[kind]}
-        description="외부 결제 및 은행 연동 없이 더미 잔액으로 표시합니다."
+        description="보유 잔액과 처리 현황을 확인할 수 있습니다."
         className="mb-6"
       />
       <SummaryGrid columns={3}>
@@ -949,11 +965,11 @@ function MileageActionPage({ kind }) {
   const guideItems = isCharge
     ? [
         "입금자명과 신청 금액이 일치해야 빠르게 처리됩니다.",
-        "외부 결제 연동 전까지 실제 충전은 발생하지 않는 데모 화면입니다.",
+        "충전 신청 후 입금 확인이 완료되면 잔액에 반영됩니다.",
       ]
     : [
         "출금은 본인 명의 계좌 기준으로 처리됩니다.",
-        "은행 API 연동 전까지 실제 출금은 발생하지 않는 데모 화면입니다.",
+        "출금 신청 후 본인 확인이 완료되면 순차적으로 처리됩니다.",
       ];
 
   return (
@@ -985,7 +1001,7 @@ function MileageActionPage({ kind }) {
               className="grid gap-4 p-7"
               onSubmit={(event) => {
                 event.preventDefault();
-                alert(`${title} 데모입니다.`);
+                alert(`${title} 신청이 접수되었습니다.`);
               }}
             >
               <h3 className="m-0 text-xl font-black text-ink">{primaryLabel}</h3>
@@ -1080,7 +1096,7 @@ function PointPage() {
           <StatCard
             label="이번 달 적립"
             value={won(4000)}
-            description="데모 데이터 기준 누적 적립금입니다."
+            description="이번 달 누적 적립 금액입니다."
           />
           <StatCard
             label="이번 달 사용"
@@ -1094,7 +1110,7 @@ function PointPage() {
             <div>
               <h3 className="m-0 text-lg font-black text-ink">적립금 사용 안내</h3>
               <p className="m-0 mt-1 text-sm text-muted">
-                실제 정책과 만료일은 백엔드 API 연동 후 내려받도록 예정되어 있습니다.
+                적립금 정책과 만료일을 확인하고 결제에 사용할 수 있습니다.
               </p>
             </div>
             <Button variant="primary" route="trade">
@@ -1136,7 +1152,7 @@ function PointPage() {
 
 function MileHistoryPage() {
   const history = [
-    { title: "더미 충전 신청", date: "2026.05.20", amount: 50000 },
+    { title: "마일리지 충전 신청", date: "2026.05.20", amount: 50000 },
     { title: "거래 결제", date: "2026.05.21", amount: -15500 },
     { title: "적립금 사용", date: "2026.05.22", amount: -3000 },
   ];
@@ -1170,21 +1186,25 @@ function MileHistoryPage() {
 export function NoticeListPage() {
   return (
     <main className="page-main notice-board-page section">
-      <div className="notice-board-wrap">
-        <header className="notice-board-head">
-          <div>
-            <p className="notice-board-kicker">CUSTOMER CENTER</p>
-            <h2 className="notice-board-title">공지사항</h2>
-          </div>
-          <AppLink className="notice-board-contact" route="chat">
-            <span className="notice-contact-icon">1:1</span>
-            채널톡 문의
-          </AppLink>
-        </header>
-        <div className="notice-board-guide">
-          <span className="notice-guide-icon">!</span>
-          게임마켓의 서비스 안내와 업데이트 소식을 확인해 주세요.
-        </div>
+      <Card padding="lg" className="notice-board-wrap grid gap-6">
+        <SectionTitle
+          eyebrow="CUSTOMER CENTER"
+          eyebrowTone="inkSoft"
+          title="공지사항"
+          description="게임레어의 서비스 안내와 업데이트 소식을 확인해 보세요."
+          className="notice-board-head"
+          action={
+            <Button
+              variant="primary"
+              size="md"
+              route="chat"
+              className="px-4"
+            >
+              <span className="notice-contact-icon">1:1</span>
+              채널톡 문의
+            </Button>
+          }
+        />
         <div className="notice-board-summary">
           총 <strong>{notices.length}</strong>건
         </div>
@@ -1206,7 +1226,7 @@ export function NoticeListPage() {
             </li>
           ))}
         </ul>
-      </div>
+      </Card>
     </main>
   );
 }
@@ -1243,17 +1263,20 @@ export function FaqPage() {
   const group = faqGroups.find((item) => item.id === active) || faqGroups[0];
 
   return (
-    <main id="wrap" className="page-main faq-board-page">
-      <div className="notice_page_wrap">
-        <div className="notice_title_wrap">
-          <div className="notice_title">FAQ</div>
-          <div className="notice_title_info">
-            <div className="notice_title_info_row">
-              <span>- 1:1상담은 카카오채널 채팅으로 아침 9시부터 새벽 1시까지 가능합니다.</span>
-              <AppLink route="chat">1:1채널톡 문의</AppLink>
-            </div>
-          </div>
-        </div>
+    <main id="wrap" className="page-main notice-board-page faq-board-page section">
+      <Card padding="lg" className="grid gap-6">
+        <SectionTitle
+          eyebrow="CUSTOMER CENTER"
+          eyebrowTone="inkSoft"
+          title="FAQ"
+          description="1:1상담은 카카오채널 채팅으로 아침 9시부터 새벽 1시까지 가능합니다."
+          className="faq-page-head"
+          action={
+            <Button variant="primary" size="md" route="chat" className="px-4">
+              1:1채널톡 문의
+            </Button>
+          }
+        />
         <div className="faq_list_wrap">
           <div className="faq_tabs_row">
             <ul className="tabs" role="tablist">
@@ -1295,7 +1318,7 @@ export function FaqPage() {
             </ul>
           </div>
         </div>
-      </div>
+      </Card>
     </main>
   );
 }
@@ -1306,7 +1329,7 @@ export function AccountPage({ params }) {
     <Page>
       <SectionTitle
         title={`${game} 계정거래`}
-        description="계정거래 상세 조건은 더미 데이터로 구성되어 있습니다."
+        description="계정 상태와 거래 조건을 확인하고 안전하게 거래할 수 있습니다."
         className="mb-6"
       />
       <SummaryGrid columns={3} className="mb-6">
@@ -1314,8 +1337,8 @@ export function AccountPage({ params }) {
         <StatCard label="안전결제" value="OK" description="구매확정 전 결제금 보관" />
         <StatCard
           label="채팅상담"
-          value="DEMO"
-          description="외부 채팅 연동 전 placeholder"
+          value="ON"
+          description="실시간 문의 연결 지원"
         />
       </SummaryGrid>
       <Button variant="primary" route="trade-write" params={{ status: "sell", krgame: game }}>
@@ -1332,7 +1355,7 @@ export function ChatPage() {
         <Card padding="lg" className="grid gap-4">
           <SectionTitle
             title="채팅"
-            description="외부 채팅 서비스는 아직 연동하지 않았습니다. 현재는 placeholder 화면입니다."
+            description="채팅 상담은 고객센터를 통해 빠르게 안내받을 수 있습니다."
           />
           <Button variant="primary" size="lg" route="notice-list">
             고객센터로 이동

@@ -1023,11 +1023,11 @@ main.page-main > *,
 }
 
 .trade-type.sell {
-  background: var(--primary, #fe5502);
+  background: var(--ink, #111827);
 }
 
 .trade-type.buy {
-  background: #2563eb;
+  background: var(--primary, #fe5502);
 }
 
 .trade-market-item .trade-title {

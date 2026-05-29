@@ -3,7 +3,7 @@ import { cn } from "../../lib/cn.js";
 
 const VARIANTS = {
   primary:
-    "bg-primary text-white shadow-primary hover:bg-primary-dark active:bg-primary-dark",
+    "bg-primary text-white hover:bg-primary-dark active:bg-primary-dark",
   ghost:
     "bg-transparent text-primary border border-primary/60 hover:bg-primary-soft",
   outline:
@@ -41,7 +41,7 @@ export function Button({
   const Tag = resolveTag({ route, href });
 
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-full font-black",
+    "inline-flex items-center justify-center gap-2 rounded-lg font-black whitespace-nowrap",
     "transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed",
     "no-underline",
     VARIANTS[variant] ?? VARIANTS.primary,

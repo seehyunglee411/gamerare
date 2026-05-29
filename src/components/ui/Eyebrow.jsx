@@ -5,6 +5,7 @@ const TONES = {
   light: "bg-white/20 text-white",
   soft: "bg-primary-soft text-primary",
   ghost: "bg-slate-100 text-slate-600",
+  inkSoft: "border border-primary/20 bg-primary-soft text-primary",
 };
 
 export function Eyebrow({ tone = "soft", className, children, ...props }) {

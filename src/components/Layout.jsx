@@ -69,12 +69,12 @@ function SiteFooter() {
         <div className="company-info">
           <img src={assetPath("logo_320x104.png")} alt="게임마켓 로고" />
           <p>
-            상호 : 겜마톡 / 대표 : 유지훈 / 사업자등록번호 : 807-16-01721 / 통신판매업 :
-            2024-전주덕진-0100 / 고객센터 : 1644-4176
+            상호 : 게임레어 / 대표 : 김현서 / 사업자등록번호 : 312-58-09471 / 통신판매업 :
+            2025-서울강남-1842 / 고객센터 : 1644-4176
             <br />
-            전라북도 전주시 덕진구 가재미로 83(인후동1가) / 이메일 : contact@gamemarket.kr
+            서울특별시 강남구 테헤란로 128, 7층 / 이메일 : contact@gamerare.co.kr
             <br />
-            COPYRIGHT (C) GAME MARKET. ALL RIGHTS RESERVED.
+            COPYRIGHT (C) GAMERARE. ALL RIGHTS RESERVED.
           </p>
         </div>
       </div>

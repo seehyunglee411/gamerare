@@ -13,7 +13,7 @@ export function Page({
         "w-full",
         background === "pageBg" && "bg-pageBg",
         background === "white" && "bg-white",
-        padded && "py-10 md:py-12",
+        padded && "pb-10 md:pb-12",
         "px-[max(16px,calc((100%-1200px)/2))]",
         className,
       )}
