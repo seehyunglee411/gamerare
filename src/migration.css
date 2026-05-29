@@ -1,3 +1,5 @@
+@tailwind utilities;
+
 .trade-write-page,
 .account-game-page,
 .login-page,
@@ -9,12 +11,44 @@
 }
 
 :root {
-  --content-max: 1440px;
+  --content-max: 1200px;
+  --content-gutter: 16px;
+  --max: 1200px;
   --page-bg: #f5f7fb;
 }
 
 body {
   background: var(--page-bg);
+}
+
+.header-inner,
+.footer-inner,
+.section {
+  width: min(var(--content-max), calc(100% - var(--content-gutter) * 2));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-wrap {
+  width: min(var(--content-max), calc(100% - var(--content-gutter) * 2));
+  margin: 0 auto;
+}
+
+.main-nav {
+  padding-inline: max(var(--content-gutter), calc((100% - var(--content-max)) / 2));
+}
+
+@media (max-width: 768px) {
+  :root {
+    --content-gutter: 12px;
+  }
+
+  .header-inner,
+  .footer-inner,
+  .section,
+  .search-wrap {
+    width: min(var(--content-max), calc(100% - var(--content-gutter) * 2));
+  }
 }
 
 .search_box .game a {
@@ -188,7 +222,7 @@ main.page-main,
   max-width: none;
   margin: 0;
   background: var(--page-bg);
-  padding: 40px max(32px, calc((100% - var(--content-max)) / 2)) 88px;
+  padding: 40px max(var(--content-gutter), calc((100% - var(--content-max)) / 2)) 88px;
 }
 
 .trade-write-layout,
@@ -1147,7 +1181,7 @@ main.page-main > *,
   .login-page,
   .mileage-page,
   .account-page {
-    padding: 24px 12px 92px;
+    padding: 24px var(--content-gutter) 92px;
   }
 
   main.section > *,
